@@ -7,5 +7,6 @@ require("config.lazy")
 
 local lspconfig = require("lspconfig")
 -- vim.lsp.config("*", {})
--- lspconfig = require("lspconfig")
-lspconfig.tsserver.setup({})
+lspconfig = require("lspconfig")
+lspconfig.vtsls.setup({})
+lspconfig.angularls.setup({})

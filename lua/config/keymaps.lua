@@ -4,7 +4,12 @@
 --
 -- vim.keymap.del("n", "<A-h>")
 vim.api.nvim_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
+-- vim.keymap.del("n", "gd")
+vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.format()<CR>", { noremap = true, silent = true })
+-- vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
+-- vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
+
+-- vim.api.nvim_set_keymap("n", "gr", "<cmd><CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<A-q>", "<cmd><leader>bd<CR>", { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap("n", "<A-h>", "<cmd>vertical resize -1<CR>", { noremap = true, silent = true })
