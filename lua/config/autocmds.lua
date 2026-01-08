@@ -9,16 +9,9 @@
 local autocmd = vim.api.nvim_create_autocmd
 
 autocmd("VimEnter", {
-    -- callback = function()
-    --     vim.cmd(":silent !kitty @ set-spacing padding=0 margin=0")
-    --     -- vim.cmd(":q")
-    -- end,
-    -- command = ":!kitty @ set-spacing -a padding=30",
     command = ":silent !alacritty msg config 'window.padding={x=0,y=0}'",
-    -- command = ":q",
 })
 
 autocmd("VimLeavePre", {
     command = ":silent !alacritty msg config 'window.padding={x=20,y=20}'",
-    -- command = ":silent !kitty @ set-spacing padding=20",
 })
