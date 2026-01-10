@@ -3,8 +3,11 @@
 -- Add any additional options here
 local opt = vim.opt
 
-opt.shiftwidth = 4
+opt.expandtab = true -- Use spaces instead of tabs
+opt.shiftwidth = 2
+opt.tabstop = 2
 opt.wrap = false
+opt.smartindent = true
 
 -- search settings
 opt.ignorecase = true -- ignore case when searching
@@ -22,3 +25,24 @@ opt.swapfile = false
 opt.number = true
 opt.relativenumber = true
 opt.cursorline = true
+
+opt.fillchars = {
+  foldopen = "",
+  foldclose = "",
+  fold = " ",
+  foldsep = " ",
+  diff = "╱",
+  eob = " ",
+}
+opt.foldlevel = 99
+opt.foldmethod = "indent"
+opt.foldtext = ""
+
+opt.list = true -- Show some invisible charactors (tabs, spaces, etc)
+
+opt.pumblend = 0
+
+opt.undofile = true
+opt.undolevels = 10000
+
+opt.wildmode = "longest:full,full"

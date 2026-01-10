@@ -6,11 +6,9 @@ return {
     local conform = require("conform")
 
     conform.setup({
-      log_level = vim.log.levels.DEBUG,
       formatters_by_ft = {
         lua = { "stylua" },
       },
-      lsp_format = "never",
       format_on_save = { timeout_ms = 500 },
     })
 
