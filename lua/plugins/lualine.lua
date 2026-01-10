@@ -35,10 +35,10 @@ return {
           {
             "diagnostics",
             symbols = {
-              error = icons.diagnostics.Error,
-              warn = icons.diagnostics.Warn,
-              info = icons.diagnostics.Info,
-              hint = icons.diagnostics.Hint,
+              -- error = icons.diagnostics.Error,
+              -- warn = icons.diagnostics.Warn,
+              -- info = icons.diagnostics.Info,
+              -- hint = icons.diagnostics.Hint,
             },
           },
           { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
@@ -73,9 +73,9 @@ return {
           {
             "diff",
             symbols = {
-              added = icons.git.added,
-              modified = icons.git.modified,
-              removed = icons.git.removed,
+              -- added = icons.git.added,
+              -- modified = icons.git.modified,
+              -- removed = icons.git.removed,
             },
             source = function()
               local gitsigns = vim.b.gitsigns_status_dict

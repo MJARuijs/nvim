@@ -5,7 +5,7 @@
 local opt = vim.opt
 
 opt.shiftwidth = 4
-opt.wrap = true
+opt.wrap = false
 
 -- search settings
 opt.ignorecase = true -- ignore case when searching
