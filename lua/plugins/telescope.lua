@@ -9,6 +9,11 @@ return {
   },
   keys = {
     {
+      "<leader>f",
+      "",
+      desc = "Telescope Find Files",
+    },
+    {
       "<leader>ff",
       function()
         require("telescope.builtin").find_files()
