@@ -109,6 +109,7 @@ return {
             { event = "lsp", kind = "message" },
           },
         },
+        filter_opts = {},
       },
       -- :Noice last
       last = {
@@ -130,7 +131,7 @@ return {
         -- options for the message history that you get with `:Noice`
         view = "popup",
         opts = { enter = true, format = "details" },
-        filter = { error = true },
+        filter = { error = true, warning = true },
         filter_opts = { reverse = true },
       },
       all = {
@@ -251,7 +252,7 @@ return {
       -- { "<S-Enter>", function() require("noice").redirect(vim.fn.getcmdline()) end, mode = "c", desc = "Redirect Cmdline" },
       { "<leader>nl", function() require("noice").cmd("last") end, desc = "Noice Last Message" },
       { "<leader>nh", function() require("noice").cmd("telescope") end, desc = "Noice History" },
-      -- { "<leader>na", function() require("noice").cmd("all") end, desc = "Noice All" },
+      { "<leader>na", function() require("noice").cmd("all") end, desc = "Noice All" },
       -- { "<leader>ne", function() require("noice").cmd("errors") end, desc = "Noice Errors" },
       -- { "<leader>nw", function() require("noice").cmd("warnings") end, desc = "Noice Warnings" },
       -- { "<leader>nd", function() require("noice").cmd("dismiss") end, desc = "Dismiss All" },
@@ -263,9 +264,9 @@ return {
     -- HACK: noice shows messages from before it was enabled,
     -- but this is not ideal when Lazy is installing plugins,
     -- so clear the messages in this case.
-    -- if vim.o.filetype == "lazy" then
-    --   vim.cmd([[messages clear]])
-    -- end
+    if vim.o.filetype == "lazy" then
+      vim.cmd([[messages clear]])
+    end
     require("noice").setup(opts)
   end,
 }
