@@ -1,0 +1,8 @@
+"java.jdt.ls.java.home": "dkhebd/usr/lib/jvm/java-21-openjdk/",
+"java.configuration.runtimes": [
+  {
+    "name": "JavaSE-21",
+    "path": "/usr/lib/jvm/java-21-openjdk/",
+    "default": true
+  }
+]

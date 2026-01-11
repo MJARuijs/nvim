@@ -9,9 +9,16 @@
 local autocmd = vim.api.nvim_create_autocmd
 
 autocmd("VimEnter", {
-    command = ":silent !alacritty msg config 'window.padding={x=0,y=0}'",
+  command = ":silent !alacritty msg config 'window.padding={x=0,y=0}'",
 })
 
 autocmd("VimLeavePre", {
-    command = ":silent !alacritty msg config 'window.padding={x=20,y=20}'",
+  command = ":silent !alacritty msg config 'window.padding={x=20,y=20}'",
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "java" },
+  callback = function()
+    vim.treesitter.start()
+  end,
 })
