@@ -46,3 +46,7 @@ opt.undofile = true
 opt.undolevels = 10000
 
 opt.wildmode = "longest:full,full"
+
+-- Neovide Options
+vim.g.neovide_scale_factor = 0.75
+vim.g.neovide_scroll_animation_length = 0.0

@@ -4,6 +4,7 @@ return {
     opts = {
       automatic_enable = {
         exclude = {
+          "vtsls",
           -- "jdtls",
         },
       },
