@@ -1,5 +1,7 @@
 local M = {}
 
+local colors = require("intellij.palette")
+
 M.setup = function()
   return {
 
