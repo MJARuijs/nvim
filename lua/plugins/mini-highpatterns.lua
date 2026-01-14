@@ -49,7 +49,7 @@ return {
       -- reset hl groups when colorscheme changes
       vim.api.nvim_create_autocmd("ColorScheme", {
         callback = function()
-          M.hl = {}
+          -- M.hl = {}
         end,
       })
       opts.highlighters.tailwind = {

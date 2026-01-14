@@ -35,3 +35,8 @@ vim.lsp.config("vtsls", {
 -- vim.lsp.enable("vtsls")
 -- require("colorschemes.intellij.nvim.intellij").setup()
 -- vim.lsp.config("angularls")
+-- require("tokyonight").setup({
+--   on_highlights = function(hl, c)
+--     hl.typescriptDecorator = "#ff0000"
+--   end,
+-- })
