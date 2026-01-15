@@ -1,7 +1,11 @@
 return {
     "nvim-java/nvim-java",
     config = function()
-        require("java").setup()
+        require("java").setup({
+            java_debug_adapter = {
+                enable = false,
+            },
+        })
         vim.lsp.enable("jdtls")
         vim.keymap.set("n", "<leader>Jt", "<cmd>JavaTestRunCurrentClass<CR>", { desc = "Run Current Test File" })
         vim.keymap.set("n", "<leader>Jr", "<cmd>JavaTestViewLastReport<CR>", { desc = "View Test Result" })
@@ -22,4 +26,5 @@ return {
             },
         })
     end,
+    setup = function() end,
 }
