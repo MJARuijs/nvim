@@ -1,4 +1,4 @@
 return {
-    "nvim-dap",
-    enabled = false,
+  "nvim-dap",
+  enabled = true,
 }

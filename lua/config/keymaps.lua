@@ -22,10 +22,12 @@ vim.api.nvim_set_keymap("n", "<A-C-j>", "<cmd>horizontal resize -3<CR>", { norem
 vim.api.nvim_set_keymap("n", "<A-C-k>", "<cmd>horizontal resize +3<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<A-C-l>", "<cmd>vertical resize +3<CR>", { noremap = true, silent = true })
 
-vim.keymap.set(
-  { "n", "v" },
-  -- "n",
-  "<leader>sv",
-  "<cmd>source $MYVIMRC<CR>",
-  { noremap = true, silent = true }
-)
+vim.keymap.set("n", "dd", '"_dd', { desc = "Delete to Void" })
+
+-- vim.keymap.set(
+--     { "n", "v" },
+--     -- "n",
+--     "<leader>sv",
+--     "<cmd>source $MYVIMRC<CR>",
+--     { noremap = true, silent = true }
+-- )

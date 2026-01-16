@@ -5,10 +5,10 @@
 -- vim.lsp.enable("cssls")
 -- vim.lsp.enable("ts_ls")
 -- vim.lsp.enable("vtsls")
-require("core.lazy")
-require("core.autocmds")
-require("core.keymaps")
-require("core.options")
+require("config.lazy")
+require("config.autocmds")
+require("config.keymaps")
+require("config.options")
 
 -- vim.cmd("highlight clear")
 -- require("colorschemes.intellij").setup()
@@ -20,3 +20,22 @@ require("core.options")
 -- lspconfig = require("lspconfig")
 -- lspconfig.vtsls.setup({})
 -- lspconfig.angularls.setup({})
+vim.lsp.config("vtsls", {
+  cmd = { "vtsls", "--stdio" },
+  filetypes = {
+    "typescript",
+  },
+  settings = {
+    importModuleSpecifierPreference = "non-relative",
+    importModuleSpecifier = "non-relative",
+    importModuleSpecifierEnding = "minimal",
+  },
+  init_options = {
+    preferences = {
+
+      importModuleSpecifierPreference = "non-relative",
+      importModuleSpecifier = "non-relative",
+      importModuleSpecifierEnding = "minimal",
+    },
+  },
+})
