@@ -39,3 +39,12 @@ vim.lsp.config("vtsls", {
     },
   },
 })
+
+-- vim.api.nvim_create_autocmd("FileType", {
+--   pattern = { "html" },
+--   callback = function()
+--     -- vim.cmd("qa")
+--     vim.notify("Started!")
+--     vim.treesitter.start()
+--   end,
+-- })

@@ -21,6 +21,14 @@ M.setup = function()
     ["@variable.builtin.angular"] = { fg = colors.variable },
     -- ["@nospell.angular"] = { fg = colors.test },
 
+    -- HTML
+    ["@spell.html"] = { link = 0 },
+    ["@tag.html"] = { fg = colors.yellow },
+    ["@tag.attribute.html"] = { fg = colors.variable },
+    ["@tag.delimiter.html"] = { fg = colors.text },
+    -- ["@spell.html"] = { fg = colors.test },
+    ["@comment.html"] = { fg = colors.comment },
+
     -- Typescript
     ["@lsp.type.class.typescript"] = { link = 0 },
     ["@lsp.typemod.class.typescript"] = { link = 0 },

@@ -75,8 +75,9 @@ return {
           -- stylua: ignore
           keys = {
             { "<leader>cl", function() Snacks.picker.lsp_config() end, desc = "Lsp Info" },
-            { "gd", vim.lsp.buf.definition, desc = "Goto Definition", has = "definition" },
-            { "gr", vim.lsp.buf.references, desc = "References", nowait = true },
+            { "gd", function() require("telescope.builtin").lsp_definitions({ reuse_win = true }) end, desc = "Goto Definition", has = "definition" },
+            { "gr", "<cmd>Telescope lsp_references<CR>", desc = "References", nowait = true },
+            -- { "gr", vim.lsp.buf.references, desc = "References", nowait = true },
             { "gI", vim.lsp.buf.implementation, desc = "Goto Implementation" },
             { "gy", vim.lsp.buf.type_definition, desc = "Goto T[y]pe Definition" },
             { "gD", vim.lsp.buf.declaration, desc = "Goto Declaration" },
