@@ -8,9 +8,7 @@
 -- vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.format()<CR>", { noremap = true, silent = true })
 -- vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
 -- vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
-
--- vim.api.nvim_set_keymap("n", "gr", "<cmd><CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<A-q>", "<cmd><leader>bd<CR>", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "<A-q>", "<cmd><leader>bd<CR>", { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap("n", "<A-h>", "<cmd>vertical resize -1<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<A-j>", "<cmd>horizontal resize -1<CR>", { noremap = true, silent = true })
@@ -26,18 +24,21 @@ vim.api.nvim_set_keymap("i", "<C-h>", "<Left>", { noremap = true, silent = true 
 vim.api.nvim_set_keymap("i", "<C-j>", "<Down>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("i", "<C-k>", "<Up>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("i", "<C-l>", "<Right>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("i", "<C-p>", "<ESC>pa", {})
+-- vim.api.nvim_set_keymap("n", "<leader>e", "<C-w>v<C-w>H<cmd>Oil<CR>", {})
 vim.keymap.set("n", "d", '"_d', { desc = "Delete to Void" })
 vim.keymap.set("n", "x", '"_x', { desc = "Delete to Void" })
 vim.keymap.set("n", "c", "d", { desc = "Cut" })
 vim.keymap.set("n", "cc", "dd", { desc = "Cut" })
--- vim.keymap.set("i", "<C-z>", function()
---   vim.cmd("<ESC>")
---   -- vim.notify n("YO")
--- end, { desc = "Paste in Insert" })
-vim.api.nvim_set_keymap("i", "<C-p>", "<ESC>pa", {})
+
 vim.keymap.set("n", "<A-e>", function()
   Snacks.explorer.open()
 end, { desc = "Open Explorer" })
--- Open Explorer
 
--- vim.keymap.del("n", "<C-j>")
+vim.api.nvim_create_autocmd("User", {
+  pattern = "VeryLazy",
+  callback = function()
+    vim.keymap.del("n", "L")
+    vim.keymap.del("n", "H")
+  end,
+})

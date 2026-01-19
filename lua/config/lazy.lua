@@ -16,23 +16,10 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   spec = {
-    -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     { import = "lazyvim.plugins.extras" },
-    -- import/override with your plugins
-
     { import = "plugins" },
     { import = "plugins/lsp" },
     { import = "plugins/lang" },
   },
 })
--- require('mini.starter').setup()
-
--- {
---   "LazyVim/LazyVim",
---   opts = {
---     colorscheme = "catppuccin-macchiato",
---   },
--- },
--- vim.cmd("highlight clear")
--- require("colorschemes.intellij.nvim.init").setup()

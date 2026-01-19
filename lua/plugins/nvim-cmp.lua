@@ -18,9 +18,7 @@ return {
   },
   config = function()
     local cmp = require("cmp")
-
     local luasnip = require("luasnip")
-
     local lspkind = require("lspkind")
 
     -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
@@ -34,8 +32,9 @@ return {
       mapping = {
         ["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
         ["<C-j>"] = cmp.mapping.select_next_item(), -- next suggestion
-        ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-        ["<C-f>"] = cmp.mapping.scroll_docs(4),
+        ["<C-y>"] = cmp.mapping.scroll_docs(-4),
+        ["<C-e>"] = cmp.mapping.scroll_docs(4),
+        ["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
         -- ["<CR>"] = cmp.mapping.confirm({ select = true }),
         ["<CR>"] = cmp.mapping(function(fallback)
           -- This little snippet will confirm with Enter, and if no entry is selected, will confirm the first item
