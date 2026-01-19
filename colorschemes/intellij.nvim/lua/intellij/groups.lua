@@ -75,6 +75,8 @@ M.setup = function()
     -- SnacksPickerInputSearch = { bg = colors.bg },
     SnacksPickerBorder = { fg = colors.orange, bg = colors.bg },
 
+    DiagnosticUnnecessary = { fg = colors.unused_code },
+
     -- General LSP
     Comment = { fg = "#7A7E85", italic = true },
     String = { fg = colors.string },
@@ -100,6 +102,9 @@ M.setup = function()
     typescriptImport = { fg = colors.keyword },
     typescriptInterfaceName = { fg = colors.text },
     typescriptPredefinedType = { fg = colors.keyword },
+
+    -- Lua
+    ["@keyword.conditional.lua"] = { fg = "#ff757f" },
 
     -- typescriptBlock = { fg = colors.test },
     -- typescriptIdentifierName = { fg = colors.test },
