@@ -16,7 +16,9 @@ return {
   opts = {
     formatters_by_ft = {
       java = { "astyle" },
-      -- typescript = { "prettier" },
+      -- html = { "prettier" },
+      -- htmlangular = { "prettier" },
+      -- typescript = { "astyle" },
     },
     formatters = {
       stylua = {

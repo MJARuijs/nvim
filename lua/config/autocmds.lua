@@ -15,19 +15,3 @@ autocmd("VimEnter", {
 autocmd("VimLeavePre", {
   command = ":silent !alacritty msg config 'window.padding={x=20,y=20}'",
 })
-
--- vim.api.nvim_create_autocmd("FileType", {
---     pattern = { "java" },
---     callback = function()
---         vim.treesitter.start()
---     end,
--- })
-
-vim.api.nvim_create_autocmd("LspAttach", {
-  callback = function(args)
-    local client = vim.lsp.get_client_by_id(args.data.client_id)
-    if client then
-      -- client.server_capabilities.semanticTokensProvider = nil
-    end
-  end,
-})

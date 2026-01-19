@@ -7,6 +7,8 @@ M.setup = function()
 
     Normal = { bg = colors.bg },
     CursorLine = { bg = "#2f334d" },
+    LineNrAbove = { fg = "#5361a3" },
+    LineNrBelow = { fg = "#5361a3" },
 
     -- Angular
     ["@tag.angular"] = { fg = colors.yellow },
@@ -80,6 +82,7 @@ M.setup = function()
     String = { fg = colors.string },
     Keyword = { fg = colors.keyword },
     Statement = { bold = false },
+    DiagnosticDeprecated = { strikethrough = false },
 
     -- Typescript
     typescriptResponseProp = { link = 0 },

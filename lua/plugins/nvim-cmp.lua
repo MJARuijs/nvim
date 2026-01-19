@@ -25,22 +25,42 @@ return {
 
     -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
     require("luasnip.loaders.from_vscode").lazy_load()
-
     cmp.setup({
       snippet = { -- configure how nvim-cmp interacts with snippet engine
         expand = function(args)
           luasnip.lsp_expand(args.body)
         end,
       },
-      mapping = cmp.mapping.preset.insert({
+      mapping = {
         ["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
         ["<C-j>"] = cmp.mapping.select_next_item(), -- next suggestion
         ["<C-b>"] = cmp.mapping.scroll_docs(-4),
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
-        ["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
-        ["<C-e>"] = cmp.mapping.abort(), -- close completion window
         -- ["<CR>"] = cmp.mapping.confirm({ select = true }),
-      }),
+        ["<CR>"] = cmp.mapping(function(fallback)
+          -- This little snippet will confirm with Enter, and if no entry is selected, will confirm the first item
+          if cmp.visible() then
+            local entry = cmp.get_selected_entry()
+            if not entry then
+              cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+            end
+            cmp.confirm()
+          else
+            fallback()
+          end
+        end, { "i", "s" }),
+      },
+
+      -- mapping = cmp.mapping.preset.insert({
+      --   ["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
+      --   ["<C-j>"] = cmp.mapping.select_next_item(), -- next suggestion
+      --   ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+      --   ["<C-f>"] = cmp.mapping.scroll_docs(4),
+      --   ["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
+      --   ["<C-e>"] = cmp.mapping.abort(), -- close completion window
+      --   ["<C-CR>"] = cmp.mapping.confirm({ select = true }),
+      --   -- ["<C-p>"] = nil,
+      -- }),
       -- sources for autocompletion
       sources = cmp.config.sources({
         { name = "nvim_lsp" },

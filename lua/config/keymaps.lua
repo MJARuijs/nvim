@@ -26,11 +26,17 @@ vim.api.nvim_set_keymap("i", "<C-h>", "<Left>", { noremap = true, silent = true 
 vim.api.nvim_set_keymap("i", "<C-j>", "<Down>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("i", "<C-k>", "<Up>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("i", "<C-l>", "<Right>", { noremap = true, silent = true })
-
 vim.keymap.set("n", "d", '"_d', { desc = "Delete to Void" })
 vim.keymap.set("n", "c", "d", { desc = "Cut" })
 vim.keymap.set("n", "cc", "dd", { desc = "Cut" })
-
+-- vim.keymap.set("i", "<C-z>", function()
+--   vim.cmd("<ESC>")
+--   -- vim.notify n("YO")
+-- end, { desc = "Paste in Insert" })
+vim.api.nvim_set_keymap("i", "<C-p>", "<ESC>pa", {})
 vim.keymap.set("n", "<A-e>", function()
   Snacks.explorer.open()
 end, { desc = "Open Explorer" })
+-- Open Explorer
+
+-- vim.keymap.del("n", "<C-j>")
