@@ -27,6 +27,7 @@ vim.api.nvim_set_keymap("i", "<C-j>", "<Down>", { noremap = true, silent = true 
 vim.api.nvim_set_keymap("i", "<C-k>", "<Up>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("i", "<C-l>", "<Right>", { noremap = true, silent = true })
 vim.keymap.set("n", "d", '"_d', { desc = "Delete to Void" })
+vim.keymap.set("n", "x", '"_x', { desc = "Delete to Void" })
 vim.keymap.set("n", "c", "d", { desc = "Cut" })
 vim.keymap.set("n", "cc", "dd", { desc = "Cut" })
 -- vim.keymap.set("i", "<C-z>", function()

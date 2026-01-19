@@ -9,6 +9,7 @@ return {
   bg = "#222436",
   background = "#c8d3f5",
   text = "#eeeeee",
+  unused_code = "#6F737A",
   keyword = "#CF8E6D",
   string = "#6AAB73",
   title = "#82aaff",
