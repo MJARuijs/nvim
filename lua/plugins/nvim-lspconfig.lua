@@ -165,7 +165,7 @@ return {
     if opts.inlay_hints.enabled then
       Snacks.util.lsp.on({ method = "textDocument/inlayHint" }, function(buffer)
         if vim.api.nvim_buf_is_valid(buffer) and vim.bo[buffer].buftype == "" and not vim.tbl_contains(opts.inlay_hints.exclude, vim.bo[buffer].filetype) then
-          vim.lsp.inlay_hint.enable(true, { bufnr = buffer })
+          vim.lsp.inlay_hint.enable(false, { bufnr = buffer })
         end
       end)
     end

@@ -44,7 +44,7 @@ opt.pumblend = 0
 
 opt.undofile = true
 opt.undolevels = 10000
-
+opt.termguicolors = true
 opt.wildmode = "longest:full,full"
 
 -- Neovide Options

@@ -43,3 +43,17 @@ vim.api.nvim_create_autocmd("User", {
     vim.keymap.del("n", "H")
   end,
 })
+
+local opts = { noremap = true, silent = true }
+local ng = require("ng")
+-- vim.keymap.set("n", "<leader>at", ng.goto_template_for_component, opts)
+-- vim.keymap.set("n", "<leader>ac", ng.goto_component_with_template_file, opts)
+-- vim.keymap.set("n", "<leader>aT", ng.get_template_tcb, opts)
+vim.keymap.set("n", "<leader>ct", function()
+  local buffer_name = vim.api.nvim_buf_get_name(0)
+  if string.match(buffer_name, ".html$") then
+    ng.goto_component_with_template_file({})
+  else
+    ng.goto_template_for_component({})
+  end
+end, { desc = "Toggle Component/Template" })

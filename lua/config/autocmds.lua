@@ -9,7 +9,7 @@
 local autocmd = vim.api.nvim_create_autocmd
 
 autocmd("VimEnter", {
-  command = ":silent !alacritty msg config 'window.padding={x=0,y=0}'",
+  command = ":silent !alacritty msg config 'window.padding={x=5,y=5}'",
 })
 
 autocmd("VimLeavePre", {

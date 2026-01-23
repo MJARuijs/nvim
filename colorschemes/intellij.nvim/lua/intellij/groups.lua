@@ -5,10 +5,7 @@ local colors = require("intellij.palette")
 M.setup = function()
   return {
 
-    Normal = { bg = colors.bg },
-    CursorLine = { bg = "#2f334d" },
-    LineNrAbove = { fg = "#5361a3" },
-    LineNrBelow = { fg = "#5361a3" },
+    DiagnosticUnnecessary = { fg = colors.unused_code },
 
     -- Angular
     ["@tag.angular"] = { fg = colors.yellow },
@@ -63,22 +60,6 @@ M.setup = function()
     ["@variable.member.typescript"] = { fg = colors.variable },
     ["@variable.parameter.typescript"] = { fg = colors.text },
 
-    -- Dashbord
-    SnacksDashboardNormal = { bg = colors.bg },
-    SnacksDashboardDesc = { fg = "#86e1fc" },
-    SnacksDashboardHeader = { fg = colors.title },
-    SnacksDashboardFile = { fg = colors.title },
-    SnacksDashboardDir = { fg = "#545c7e" },
-    SnacksDashboardIcon = { fg = "#65bcff" },
-    SnacksDashboardTitle = { fg = "#82aaff", bold = true },
-
-    -- Picker (/Explorer)
-    SnacksPicker = { bg = colors.bg },
-    -- SnacksPickerInputSearch = { bg = colors.bg },
-    SnacksPickerBorder = { fg = colors.orange, bg = colors.bg },
-
-    DiagnosticUnnecessary = { fg = colors.unused_code },
-
     -- General LSP
     Comment = { fg = "#7A7E85", italic = true },
     String = { fg = colors.string },
@@ -109,15 +90,85 @@ M.setup = function()
     -- Lua
     ["@keyword.conditional.lua"] = { fg = "#ff757f" },
 
-    -- typescriptBlock = { fg = colors.test },
-    -- typescriptIdentifierName = { fg = colors.test },
+    -----------------
+    ---- GENERAL ----
+    -----------------
+    Normal = { bg = colors.surface },
+    NormalNC = { bg = colors.surface },
+    CursorLine = { bg = colors.on_secondary },
+    LineNrAbove = { fg = "#5361a3" },
+    LineNrBelow = { fg = "#5361a3" },
+    DiagnosticSignInfo = { fg = colors.primary },
+    FloatBorder = { fg = colors.primary },
+    Pmenu = { bg = colors.surface },
+    NormalFloat = { bg = colors.surface },
 
-    -- ["@lsp.typemod.property.declaration.typescript"] = { fg = colors.variable },
-    -- typescriptClassBlock = { fg = "#ff00ff" },
+    -- Dashbord
+    SnacksDashboardNormal = { bg = colors.surface },
+    SnacksDashboardDesc = { fg = colors.tertiary },
+    SnacksDashboardHeader = { fg = colors.secondary },
+    SnacksDashboardFile = { fg = colors.primary },
+    SnacksDashboardDir = { fg = "#545c7e" },
+    SnacksDashboardIcon = { fg = colors.primary },
+    SnacksDashboardTitle = { fg = colors.primary, bold = true },
 
-    -- ["@string"] = { fg = "#6AAB73" },
-    -- ["@keyword"] = { fg = "#CF8E6D" },
-    -- ["@typescriptDecorator"] = { fg = "#ff00ff" },
+    -- Picker (/Explorer)
+    SnacksPicker = { bg = colors.surface },
+    SnacksPickerCmd = { fg = colors.test },
+    SnacksPickerCmdBuiltin = { fg = colors.test },
+    SnacksPickerCursorLine = { bg = colors.on_secondary },
+    SnacksPickerInputBorder = { fg = colors.primary, bg = colors.surface },
+    SnacksPickerInputTitle = { fg = colors.primary, bg = colors.surface },
+    SnacksPickerListCursorLine = { bg = colors.on_secondary },
+    SnacksPickerBorder = { fg = colors.primary, bg = colors.surface },
+    SnacksPickerIcon = { fg = colors.primary },
+
+    -- Telescope
+    TelescopeNormal = { bg = colors.surface },
+    TelescopeBorder = { fg = colors.primary, bg = colors.surface },
+    TelescopePromptBorder = { fg = colors.primary, bg = colors.surface },
+    TelescopePromptTitle = { fg = colors.primary, bg = colors.surface },
+    -- Title = { bg = colors.test, fg = colors.orange },
+    MsgArea = { bg = colors.orange },
+    -- Noice
+    NoiceCmdlinePopupBorder = { fg = colors.primary },
+    NoiceCmdlinePopupBorderLua = { fg = colors.primary },
+    -- NoiceMini = { fg = colors.primary },
+    NoiceMini = { bg = colors.on_secondary },
+
+    SnacksNotifierInfo = { bg = colors.surface },
+    SnacksNotifierBorderInfo = { fg = colors.primary, bg = colors.surface },
+    SnacksNotifierTitleInfo = { fg = colors.primary, bg = colors.surface },
+
+    SnacksNotifierWarn = { bg = colors.surface },
+    SnacksNotifierBorderWarn = { fg = colors.warning, bg = colors.surface },
+    SnacksNotifierTitleWarn = { fg = colors.warning, bg = colors.surface },
+
+    SnacksNotifierError = { bg = colors.surface },
+    SnacksNotifierBorderError = { fg = colors.error, bg = colors.surface },
+    SnacksNotifierTitleError = { fg = colors.error, bg = colors.surface },
+
+    SnacksNotifierTrace = { bg = colors.surface },
+    SnacksNotifierBorderTrace = { fg = colors.tertiary, bg = colors.surface },
+    SnacksNotifierTitleTrace = { fg = colors.tertiary, bg = colors.surface },
+
+    NoiceCompletionItemKindDefault = { bg = colors.orange },
+    NoiceCompletionItemMenu = { bg = colors.orange },
+    NoicePopupmenu = { bg = colors.orange, fg = colors.orange },
+
+    -- WhichKey
+    WhichKey = { fg = colors.tertiary, bg = colors.surface },
+    WhichKeyBorder = { fg = colors.primary, bg = colors.surface },
+    WhichKeyNormal = { bg = colors.surface },
+    WhichKeyDesc = { fg = colors.tertiary, bg = colors.surface },
+    WhichKeyIcon = { fg = colors.tertiary, bg = colors.surface },
+    WhichKeyValue = { fg = colors.tertiary, bg = colors.surface },
+    WhichKeyTitle = { fg = colors.primary, bg = colors.surface },
+    WhichKeyGroup = { bg = colors.surface },
+    WhichKeySeparator = { fg = colors.tertiary, bg = colors.surface },
+    -- Lualine
+    lualine_a_insert = { fg = colors.test, bg = colors.primary },
+    lualine_a_normal = { fg = colors.test, bg = colors.primary },
   }
 end
 

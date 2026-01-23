@@ -30,6 +30,8 @@ return {
     local shared_keymaps = {
       ["<C-j>"] = actions.move_selection_next,
       ["<C-k>"] = actions.move_selection_previous,
+      ["<C-e>"] = actions.preview_scrolling_down,
+      ["<C-y>"] = actions.preview_scrolling_left,
       ["<C-h>"] = actions.results_scrolling_left,
       ["<C-l>"] = actions.results_scrolling_right,
       ["<A-h>"] = actions.preview_scrolling_left,
