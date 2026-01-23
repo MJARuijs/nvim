@@ -15,7 +15,7 @@ return {
 
   opts = {
     formatters_by_ft = {
-      java = { "astyle" },
+      -- java = { "astyle" },
       -- html = { "prettier" },
       -- htmlangular = { "prettier" },
       -- typescript = { "astyle" },
