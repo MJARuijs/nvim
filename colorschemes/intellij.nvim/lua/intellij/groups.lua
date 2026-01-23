@@ -69,6 +69,7 @@ M.setup = function()
     JavaConditional = { fg = colors.keyword },
     JavaAnnotation = { fg = colors.decorator },
     JavaOperator = { fg = colors.keyword },
+    JavaCommentTitle = { link = "Comment" },
     ["@keyword"] = { fg = colors.keyword },
     ["@lsp.type.property.java"] = { fg = colors.variable },
     -- ["@lsp.type.parameter.java"] = { fg = "#ffc777" },
@@ -132,26 +133,30 @@ M.setup = function()
     -----------------
     Normal = { bg = colors.surface },
     NormalNC = { bg = colors.surface },
-    CursorLine = { bg = colors.on_secondary },
-    LineNrAbove = { fg = "#5361a3" },
-    LineNrBelow = { fg = "#5361a3" },
+    CursorLine = { bg = colors.on_primary },
+    LineNrAbove = { fg = colors.tertiary },
+    CursorLineNr = { fg = colors.primary, bold = true },
+    LineNrBelow = { fg = colors.tertiary },
     DiagnosticSignInfo = { fg = colors.primary },
     FloatBorder = { fg = colors.primary },
     Pmenu = { bg = colors.surface },
     NormalFloat = { bg = colors.surface },
-
+    Title = { fg = colors.primary },
+    FloatTitle = { fg = colors.primary, bg = colors.surface },
     -- Dashbord
     SnacksDashboardNormal = { bg = colors.surface },
-    SnacksDashboardDesc = { fg = colors.tertiary },
-    SnacksDashboardHeader = { fg = colors.secondary },
+    SnacksDashboardDesc = { fg = colors.secondary },
+    SnacksDashboardHeader = { fg = colors.primary },
     SnacksDashboardFile = { fg = colors.primary },
     SnacksDashboardDir = { fg = "#545c7e" },
     SnacksDashboardIcon = { fg = colors.primary },
+    -- SnacksDashboardKey = { fg = colors. },
     SnacksDashboardTitle = { fg = colors.primary, bold = true },
+    SnacksDashboardSpecial = { fg = colors.primary },
 
     -- Picker (/Explorer)
     SnacksPicker = { bg = colors.surface },
-    SnacksPickerCmd = { fg = colors.test },
+    -- SnacksPickerCmd = { fg = colors.test },
     SnacksPickerCmdBuiltin = { fg = colors.test },
     SnacksPickerCursorLine = { bg = colors.on_secondary },
     SnacksPickerInputBorder = { fg = colors.primary, bg = colors.surface },
@@ -165,13 +170,11 @@ M.setup = function()
     TelescopeBorder = { fg = colors.primary, bg = colors.surface },
     TelescopePromptBorder = { fg = colors.primary, bg = colors.surface },
     TelescopePromptTitle = { fg = colors.primary, bg = colors.surface },
-    -- Title = { bg = colors.test, fg = colors.orange },
-    MsgArea = { bg = colors.orange },
+
     -- Noice
     NoiceCmdlinePopupBorder = { fg = colors.primary },
     NoiceCmdlinePopupBorderLua = { fg = colors.primary },
-    -- NoiceMini = { fg = colors.primary },
-    NoiceMini = { bg = colors.on_secondary },
+    NoiceMini = { bg = colors.surface },
 
     SnacksNotifierInfo = { bg = colors.surface },
     SnacksNotifierBorderInfo = { fg = colors.primary, bg = colors.surface },
@@ -189,8 +192,6 @@ M.setup = function()
     SnacksNotifierBorderTrace = { fg = colors.tertiary, bg = colors.surface },
     SnacksNotifierTitleTrace = { fg = colors.tertiary, bg = colors.surface },
 
-    NoiceCompletionItemKindDefault = { bg = colors.orange },
-    NoiceCompletionItemMenu = { bg = colors.orange },
     NoicePopupmenu = { bg = colors.orange, fg = colors.orange },
 
     -- WhichKey
@@ -203,6 +204,9 @@ M.setup = function()
     WhichKeyTitle = { fg = colors.primary, bg = colors.surface },
     WhichKeyGroup = { bg = colors.surface },
     WhichKeySeparator = { fg = colors.tertiary, bg = colors.surface },
+
+    TroubleNormal = { link = "Normal" },
+
     -- Lualine
     lualine_a_insert = { fg = colors.test, bg = colors.primary },
     lualine_a_normal = { fg = colors.test, bg = colors.primary },

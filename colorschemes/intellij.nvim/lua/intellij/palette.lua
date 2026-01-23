@@ -18,7 +18,7 @@ return {
   on_surface = "#dbe3ed",
 
   surface_variant = "#182028",
-  onsurface_variant = "#b8c8d9",
+  on_surface_variant = "#b8c8d9",
   warning = "#ffc777",
   error = "#c53b53",
   test = "#00ff00",
