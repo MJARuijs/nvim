@@ -60,6 +60,43 @@ M.setup = function()
     ["@variable.member.typescript"] = { fg = colors.variable },
     ["@variable.parameter.typescript"] = { fg = colors.text },
 
+    -- Java
+    JavaType = { fg = colors.keyword },
+    javaParenT = { fg = colors.test },
+    JavaTypeDef = { fg = colors.keyword },
+    JavaRepeat = { fg = colors.keyword },
+    JavaStatement = { fg = colors.keyword },
+    JavaConditional = { fg = colors.keyword },
+    JavaAnnotation = { fg = colors.decorator },
+    JavaOperator = { fg = colors.keyword },
+    ["@keyword"] = { fg = colors.keyword },
+    ["@lsp.type.property.java"] = { fg = colors.variable },
+    -- ["@lsp.type.parameter.java"] = { fg = "#ffc777" },
+    ["@lsp.type.parameter.java"] = { fg = "#f4c990" },
+    ["@lsp.type.typeParameter.java"] = { fg = "#16BAAC" },
+    ["@lsp.type.method.java"] = { fg = colors.class_name },
+    ["@lsp.type.class.java"] = { fg = colors.text },
+    ["@lsp.type.interface.java"] = { fg = colors.class_name },
+    ["@lsp.type.record.java"] = { fg = colors.cyan },
+    -- ["@lsp.typemod.parameter.declat"] = { fg = colors.class_name },
+
+    JavaBlockOther = { fg = colors.test },
+    -- Dashbord
+    SnacksDashboardNormal = { bg = colors.bg },
+    SnacksDashboardDesc = { fg = "#86e1fc" },
+    SnacksDashboardHeader = { fg = colors.title },
+    SnacksDashboardFile = { fg = colors.title },
+    SnacksDashboardDir = { fg = "#545c7e" },
+    SnacksDashboardIcon = { fg = "#65bcff" },
+    SnacksDashboardTitle = { fg = "#82aaff", bold = true },
+
+    -- Picker (/Explorer)
+    SnacksPicker = { bg = colors.bg },
+    -- SnacksPickerInputSearch = { bg = colors.bg },
+    SnacksPickerBorder = { fg = colors.orange, bg = colors.bg },
+
+    DiagnosticUnnecessary = { fg = colors.unused_code },
+
     -- General LSP
     Comment = { fg = "#7A7E85", italic = true },
     String = { fg = colors.string },
