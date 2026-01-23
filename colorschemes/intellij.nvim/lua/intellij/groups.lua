@@ -82,21 +82,21 @@ M.setup = function()
 
     JavaBlockOther = { fg = colors.test },
     -- Dashbord
-    SnacksDashboardNormal = { bg = colors.bg },
-    SnacksDashboardDesc = { fg = "#86e1fc" },
-    SnacksDashboardHeader = { fg = colors.title },
-    SnacksDashboardFile = { fg = colors.title },
-    SnacksDashboardDir = { fg = "#545c7e" },
-    SnacksDashboardIcon = { fg = "#65bcff" },
-    SnacksDashboardTitle = { fg = "#82aaff", bold = true },
-
-    -- Picker (/Explorer)
-    SnacksPicker = { bg = colors.bg },
-    -- SnacksPickerInputSearch = { bg = colors.bg },
-    SnacksPickerBorder = { fg = colors.orange, bg = colors.bg },
-
-    DiagnosticUnnecessary = { fg = colors.unused_code },
-
+    -- SnacksDashboardNormal = { bg = colors.bg },
+    -- SnacksDashboardDesc = { fg = "#86e1fc" },
+    -- SnacksDashboardHeader = { fg = colors.title },
+    -- SnacksDashboardFile = { fg = colors.title },
+    -- SnacksDashboardDir = { fg = "#545c7e" },
+    -- SnacksDashboardIcon = { fg = "#65bcff" },
+    -- SnacksDashboardTitle = { fg = "#82aaff", bold = true },
+    --
+    -- -- Picker (/Explorer)
+    -- SnacksPicker = { bg = colors.bg },
+    -- -- SnacksPickerInputSearch = { bg = colors.bg },
+    -- SnacksPickerBorder = { fg = colors.orange, bg = colors.bg },
+    --
+    -- DiagnosticUnnecessary = { fg = colors.unused_code },
+    --
     -- General LSP
     Comment = { fg = "#7A7E85", italic = true },
     String = { fg = colors.string },
