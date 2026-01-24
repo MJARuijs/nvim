@@ -23,3 +23,5 @@ vim.lsp.config("vtsls", {
 })
 
 require("oil").setup()
+-- vim.cmd.colorscheme(require("intellij"))
+-- vim.cmd([[colorscheme intellij]])

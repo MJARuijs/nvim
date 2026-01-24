@@ -15,3 +15,21 @@ autocmd("VimEnter", {
 autocmd("VimLeavePre", {
   command = ":silent !alacritty msg config 'window.padding={x=20,y=20}'",
 })
+
+autocmd("Signal", {
+  pattern = "SIGUSR1",
+  -- group = vim.api.nvim_create_augroup("toggle_bg_on_SIGUSR1", {}),
+  callback = function()
+    package.loaded.theme = nil
+    require("intellij")
+    vim.cmd([[colorscheme intellij]])
+    vim.notify("Refreshed theme")
+    -- vim.cmd.colorscheme("blue")
+    vim.schedule(function()
+      -- without this, nvim window need to be focused for the effect take into account
+      vim.cmd("redraw!")
+      -- vim.notify("REDREW")
+    end)
+  end,
+  nested = true, -- allow this autocmd to trigger `OptionSet background` event
+})
