@@ -1,8 +1,9 @@
 local M = {}
 
-local colors = require("intellij.palette")
-
 M.setup = function()
+  package.loaded["intellij.palette"] = nil
+
+  local colors = require("intellij.palette")
   return {
 
     DiagnosticUnnecessary = { fg = colors.unused_code },

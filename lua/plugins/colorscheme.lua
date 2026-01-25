@@ -4,6 +4,6 @@ return {
   lazy = false,
   priority = 900,
   config = function()
-    -- vim.cmd([[colorscheme intellij]])
+    vim.cmd([[colorscheme intellij]])
   end,
 }
