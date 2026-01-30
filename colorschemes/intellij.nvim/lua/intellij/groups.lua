@@ -73,6 +73,7 @@ M.setup = function()
     JavaCommentTitle = { link = "Comment" },
     ["@attribute.java"] = { fg = colors.decorator },
     ["@variable.java"] = { fg = colors.variable },
+    ["@variable.builtin.java"] = { fg = colors.keyword },
     ["@variable.parameter.java"] = { fg = "#f4c990" },
     ["@type.builtin.java"] = { fg = colors.keyword },
     ["@keyword"] = { fg = colors.keyword },

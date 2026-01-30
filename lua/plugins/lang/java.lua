@@ -1,3 +1,6 @@
+local function sleep(n)
+  os.execute("sleep " .. tonumber(n))
+end
 return {
   "nvim-java/nvim-java",
   config = function()
@@ -7,7 +10,10 @@ return {
       },
     })
     vim.lsp.enable("jdtls")
-    vim.keymap.set("n", "<leader>jt", "<cmd>JavaTestRunCurrentClass<CR>", { desc = "Run Current Test File" })
+    vim.keymap.set("n", "<leader>jt", function()
+      vim.cmd([[JavaTestRunCurrentClass]])
+    end, { desc = "Run Current Test File" })
+    -- vim.keymap.set("n", "<leader>jt", "<cmd>JavaTestRunCurrentClass<CR><C-w>j", { desc = "Run Current Test File" })
     vim.keymap.set("n", "<leader>jT", "<cmd>JavaTestViewLastReport<CR>", { desc = "View Test Result" })
     vim.api.nvim_set_keymap("n", "<leader>jr", "<C-/> sh run.sh<CR>", {})
     -- vim.keymap.set("n", "<leader>jr", function()
