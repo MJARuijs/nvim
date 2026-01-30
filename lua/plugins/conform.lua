@@ -25,7 +25,7 @@ return {
         append_args = { "--indent-width", "2", "--column-width", "160" },
       },
       astyle = {
-        append_args = { "--indent=tab=4", "--squeeze-ws" },
+        append_args = { "--indent=spaces=4", "--squeeze-ws" },
       },
     },
   },
