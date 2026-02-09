@@ -6,3 +6,4 @@ debug
 foo.*
 *.log
 data
+colorschemes/intellij.nvim/lua/intellij/palette.lua
