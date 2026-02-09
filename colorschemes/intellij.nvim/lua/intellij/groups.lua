@@ -44,8 +44,6 @@ M.setup = function()
   lualine_theme.normal.c.bg = colors.mSurfaceVariant
   lualine_theme.normal.c.fg = colors.mTertiary
 
-  -- vim.notify(lualine_theme.normal.a.fg)
-
   require("lualine").setup({
     options = {
       theme = lualine_theme,
@@ -66,20 +64,17 @@ M.setup = function()
     ["@variable.angular"] = { fg = colors.variable },
     ["@punctuation.delimiter.angular"] = { fg = colors.string },
     ["@variable.builtin.angular"] = { fg = colors.variable },
-    -- ["@nospell.angular"] = { fg = colors.test },
 
     -- HTML
     ["@spell.html"] = { link = 0 },
     ["@tag.html"] = { fg = colors.yellow },
     ["@tag.attribute.html"] = { fg = colors.variable },
     ["@tag.delimiter.html"] = { fg = colors.text },
-    ["@spell.html"] = { link = 0 },
     ["@comment.html"] = { link = "Comment" },
 
     -- Typescript
     ["@lsp.type.class.typescript"] = { link = 0 },
     ["@lsp.typemod.class.typescript"] = { link = 0 },
-    ["@keyword.modifier.typescript"] = { link = 0 },
 
     ["@attribute.typescript"] = { fg = colors.decorator },
     ["@constant.builtin.typescript"] = { fg = colors.keyword },
@@ -262,9 +257,6 @@ M.setup = function()
     WhichKeySeparator = { fg = colors.mTertiary, bg = colors.mSurface },
 
     TroubleNormal = { link = "Normal" },
-
-    -- lualine_a_insert = { fg = colors.test, bg = colors.mPrimary },
-    -- lualine_a_normal = { fg = colors.test, bg = colors.mPrimary },
   }
 end
 
