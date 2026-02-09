@@ -2,8 +2,55 @@ local M = {}
 
 M.setup = function()
   package.loaded["intellij.palette"] = nil
-
   local colors = require("intellij.palette")
+
+  -- Lualine
+  -- local lualine_theme = {
+  -- normal = {
+  --   a = { bg = colors.gray, fg = colors.black, gui = "bold" },
+  --   b = { bg = colors.lightgray, fg = colors.white },
+  --   c = { bg = colors.darkgray, fg = colors.gray },
+  -- },
+  -- insert = {
+  --   a = { bg = colors.blue, fg = colors.black, gui = "bold" },
+  --   b = { bg = colors.lightgray, fg = colors.white },
+  --   c = { bg = colors.lightgray, fg = colors.white },
+  -- },
+  -- visual = {
+  --   a = { bg = colors.yellow, fg = colors.black, gui = "bold" },
+  --   b = { bg = colors.lightgray, fg = colors.white },
+  --   c = { bg = colors.inactivegray, fg = colors.black },
+  -- },
+  -- replace = {
+  --   a = { bg = colors.red, fg = colors.black, gui = "bold" },
+  --   b = { bg = colors.lightgray, fg = colors.white },
+  --   c = { bg = colors.black, fg = colors.white },
+  -- },
+  -- command = {
+  --   a = { bg = colors.green, fg = colors.black, gui = "bold" },
+  --   b = { bg = colors.lightgray, fg = colors.white },
+  --   c = { bg = colors.inactivegray, fg = colors.black },
+  -- },
+  -- inactive = {
+  --   a = { bg = colors.darkgray, fg = colors.gray, gui = "bold" },
+  --   b = { bg = colors.darkgray, fg = colors.gray },
+  --   c = { bg = colors.darkgray, fg = colors.gray },
+  -- },
+  -- }
+  local lualine_theme = require("lualine.themes.tomorrow_night")
+  lualine_theme.normal.a.bg = colors.mPrimary
+  lualine_theme.normal.b.bg = colors.mOnSecondary
+  lualine_theme.normal.b.fg = colors.mSecondary
+  lualine_theme.normal.c.bg = colors.mSurfaceVariant
+  lualine_theme.normal.c.fg = colors.mTertiary
+
+  -- vim.notify(lualine_theme.normal.a.fg)
+
+  require("lualine").setup({
+    options = {
+      theme = lualine_theme,
+    },
+  })
   return {
 
     DiagnosticUnnecessary = { fg = colors.unused_code },
@@ -26,8 +73,8 @@ M.setup = function()
     ["@tag.html"] = { fg = colors.yellow },
     ["@tag.attribute.html"] = { fg = colors.variable },
     ["@tag.delimiter.html"] = { fg = colors.text },
-    -- ["@spell.html"] = { fg = colors.test },
-    ["@comment.html"] = { fg = colors.comment },
+    ["@spell.html"] = { link = 0 },
+    ["@comment.html"] = { link = "Comment" },
 
     -- Typescript
     ["@lsp.type.class.typescript"] = { link = 0 },
@@ -78,6 +125,8 @@ M.setup = function()
     ["@type.builtin.java"] = { fg = colors.keyword },
     ["@keyword"] = { fg = colors.keyword },
     ["@keyword.conditional.java"] = { fg = colors.keyword },
+    ["@keyword.repeat.java"] = { fg = colors.keyword },
+    ["@keyword.exception.java"] = { fg = colors.keyword },
     ["@lsp.type.property.java"] = { fg = colors.variable },
     -- ["@lsp.type.parameter.java"] = { fg = "#ffc777" },
     ["@lsp.type.parameter.java"] = { fg = "#f4c990" },
@@ -214,9 +263,8 @@ M.setup = function()
 
     TroubleNormal = { link = "Normal" },
 
-    -- Lualine
-    lualine_a_insert = { fg = colors.test, bg = colors.mPrimary },
-    lualine_a_normal = { fg = colors.test, bg = colors.mPrimary },
+    -- lualine_a_insert = { fg = colors.test, bg = colors.mPrimary },
+    -- lualine_a_normal = { fg = colors.test, bg = colors.mPrimary },
   }
 end
 

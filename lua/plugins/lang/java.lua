@@ -15,7 +15,7 @@ return {
     end, { desc = "Run Current Test File" })
     -- vim.keymap.set("n", "<leader>jt", "<cmd>JavaTestRunCurrentClass<CR><C-w>j", { desc = "Run Current Test File" })
     vim.keymap.set("n", "<leader>jT", "<cmd>JavaTestViewLastReport<CR>", { desc = "View Test Result" })
-    vim.api.nvim_set_keymap("n", "<leader>jr", "<C-/> sh run.sh<CR>", {})
+    vim.api.nvim_set_keymap("n", "<leader>jr", "<leader>ft sh run.sh<CR>", {})
     -- vim.keymap.set("n", "<leader>jr", function()
     --   local terminal = require("snacks").terminal
     --   -- terminal:close()

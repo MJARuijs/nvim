@@ -8,6 +8,10 @@
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 local autocmd = vim.api.nvim_create_autocmd
 
+-- autocmd("VeryLazy", {
+--   vim.keymap.del("n", "<leader>ft"),
+-- })
+
 autocmd("VimEnter", {
   command = ":silent !alacritty msg config 'window.padding={x=5,y=5}'",
 })

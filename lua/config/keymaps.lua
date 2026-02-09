@@ -9,6 +9,26 @@
 -- vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
 -- vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
 -- vim.api.nvim_set_keymap("n", "<A-q>", "<cmd><leader>bd<CR>", { noremap = true, silent = true })
+-- vim.keymap.del("n", "<leader>ft")
+vim.keymap.set("n", "<leader>ft", function()
+  Snacks.terminal()
+end, { desc = "Terminal (cwd)" })
+
+vim.keymap.set("n", "<leader>fT", function()
+  Snacks.terminal(nil, { cwd = LazyVim.root() })
+end, { desc = "Terminal (Root Dir)" })
+
+vim.keymap.set({ "n", "t" }, "<c-/>", function()
+  Snacks.terminal()
+end, { desc = "Terminal (cwd)" })
+
+vim.keymap.set("n", "<leader>e", function()
+  Snacks.explorer()
+end, { desc = "Explorer (cwd)" })
+
+vim.keymap.set("n", "<leader>E", function()
+  Snacks.explorer(nil, { cwd = LazyVim.root() })
+end, { desc = "Explorer (Root Dir)" })
 
 vim.api.nvim_set_keymap("n", "<A-h>", "<cmd>vertical resize -1<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<A-j>", "<cmd>horizontal resize -1<CR>", { noremap = true, silent = true })

@@ -11,4 +11,7 @@ return {
   string = "#6AAB73",
   variable = "#C77DBB",
   warning = "#ffc777",
+  orange = "#ff966c",
+  yellow = "#D5B778",
+  cyan = "#57FFE9",
 }
