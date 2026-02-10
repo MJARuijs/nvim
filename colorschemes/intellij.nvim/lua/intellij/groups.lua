@@ -56,7 +56,7 @@ M.setup = function()
     -- Angular
     ["@tag.angular"] = { fg = colors.yellow },
     ["@tag.attribute.angular"] = { fg = colors.text },
-    ["@tag.delimiter.angular"] = { fg = colors.text },
+    ["@tag.delimiter.angular"] = { fg = colors.yellow },
     ["@keyword.angular"] = { fg = colors.variable },
     ["@property.angular"] = { fg = colors.class_name },
     ["@boolean.angular"] = { fg = colors.keyword },
@@ -64,6 +64,8 @@ M.setup = function()
     ["@variable.angular"] = { fg = colors.variable },
     ["@punctuation.delimiter.angular"] = { fg = colors.string },
     ["@variable.builtin.angular"] = { fg = colors.variable },
+    -- ["@string.angular"] = { fg = colors.string },
+    ["@nospell.angular"] = { link = 0 },
 
     -- HTML
     ["@spell.html"] = { link = 0 },
@@ -80,6 +82,7 @@ M.setup = function()
     ["@constant.builtin.typescript"] = { fg = colors.keyword },
     ["@constructor.typescript"] = { fg = colors.class_name },
     ["@keyword.conditional.typescript"] = { fg = colors.keyword },
+    ["@keyword.exception.typescript"] = { fg = colors.keyword },
     ["@keyword.import.typescript"] = { fg = colors.keyword },
     ["@keyword.modifier.typescript"] = { fg = colors.keyword },
     ["@keyword.return.typescript"] = { fg = colors.keyword },
@@ -90,6 +93,7 @@ M.setup = function()
     ["@lsp.type.function.typescript"] = { fg = colors.cyan },
     ["@lsp.type.property.typescript"] = { fg = colors.variable },
     ["@lsp.type.interface.typescript"] = { fg = colors.text },
+    ["@lsp.type.type.typescript"] = { link = 0 },
     ["@lsp.typemod.parameter.declaration.typescript"] = { fg = colors.text },
     ["@lsp.typemod.class.declaration.typescript"] = { fg = colors.class_name },
     ["@lsp.typemod.property.declaration.typescript"] = { fg = colors.class_name },

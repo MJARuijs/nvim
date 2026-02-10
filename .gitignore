@@ -7,3 +7,4 @@ foo.*
 *.log
 data
 colorschemes/intellij.nvim/lua/intellij/palette.lua
+lazy-lock.json
