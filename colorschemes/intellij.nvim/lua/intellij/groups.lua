@@ -261,6 +261,10 @@ M.setup = function()
     WhichKeySeparator = { fg = colors.mTertiary, bg = colors.mSurface },
 
     TroubleNormal = { link = "Normal" },
+
+    -- MiniHipatternsTodo = { bg = colors.test },
+    -- TodoBgTODO = { bg = colors.test },
+    TodoSignTODO = { fg = "#0db9d7", bg = colors.mSurface },
   }
 end
 
