@@ -9,4 +9,7 @@ return {
     { "<leader>fT", "" },
     { "<c-/>", "" },
   },
+  opts = {
+    scroll = { enabled = false },
+  },
 }
