@@ -1,9 +1,11 @@
 local M = {}
 
 M.setup = function()
-  package.loaded["intellij.palette"] = nil
-  local colors = require("intellij.palette")
+  package.loaded["intellij.my_palette"] = nil
+  package.loaded["intellij.matugen"] = nil
 
+  local colors = require("intellij.my_palette")
+  local matugen_colors = require("intellij.matugen")
   -- Lualine
   -- local lualine_theme = {
   -- normal = {
@@ -17,7 +19,7 @@ M.setup = function()
   --   c = { bg = colors.lightgray, fg = colors.white },
   -- },
   -- visual = {
-  --   a = { bg = colors.yellow, fg = colors.black, gui = "bold" },
+  --   a = { bg = colors.tag, fg = colors.black, gui = "bold" },
   --   b = { bg = colors.lightgray, fg = colors.white },
   --   c = { bg = colors.inactivegray, fg = colors.black },
   -- },
@@ -38,11 +40,11 @@ M.setup = function()
   -- },
   -- }
   local lualine_theme = require("lualine.themes.tomorrow_night")
-  lualine_theme.normal.a.bg = colors.mPrimary
-  lualine_theme.normal.b.bg = colors.mOnSecondary
-  lualine_theme.normal.b.fg = colors.mSecondary
-  lualine_theme.normal.c.bg = colors.mSurfaceVariant
-  lualine_theme.normal.c.fg = colors.mTertiary
+  lualine_theme.normal.a.bg = matugen_colors.mPrimary
+  lualine_theme.normal.b.bg = matugen_colors.mOnSecondary
+  lualine_theme.normal.b.fg = matugen_colors.mSecondary
+  lualine_theme.normal.c.bg = matugen_colors.mSurfaceVariant
+  lualine_theme.normal.c.fg = matugen_colors.mTertiary
 
   require("lualine").setup({
     options = {
@@ -54,9 +56,9 @@ M.setup = function()
     DiagnosticUnnecessary = { fg = colors.unused_code },
 
     -- Angular
-    ["@tag.angular"] = { fg = colors.yellow },
+    ["@tag.angular"] = { fg = colors.tag },
     ["@tag.attribute.angular"] = { fg = colors.text },
-    ["@tag.delimiter.angular"] = { fg = colors.yellow },
+    ["@tag.delimiter.angular"] = { fg = colors.tag },
     ["@keyword.angular"] = { fg = colors.variable },
     ["@property.angular"] = { fg = colors.class_name },
     ["@boolean.angular"] = { fg = colors.keyword },
@@ -69,7 +71,7 @@ M.setup = function()
 
     -- HTML
     ["@spell.html"] = { link = 0 },
-    ["@tag.html"] = { fg = colors.yellow },
+    ["@tag.html"] = { fg = colors.tag },
     ["@tag.attribute.html"] = { fg = colors.variable },
     ["@tag.delimiter.html"] = { fg = colors.text },
     ["@comment.html"] = { link = "Comment" },
@@ -133,7 +135,7 @@ M.setup = function()
     ["@lsp.type.method.java"] = { fg = colors.class_name },
     ["@lsp.type.class.java"] = { fg = colors.text },
     ["@lsp.type.interface.java"] = { fg = colors.class_name },
-    ["@lsp.type.record.java"] = { fg = colors.cyan },
+    ["@lsp.type.record.java"] = { link = "@lsp.type.class.java" },
     -- ["@lsp.typemod.parameter.declat"] = { fg = colors.class_name },
 
     JavaBlockOther = { fg = colors.test },
@@ -186,85 +188,102 @@ M.setup = function()
     -----------------
     ---- GENERAL ----
     -----------------
-    Normal = { bg = colors.mSurface },
-    NormalNC = { bg = colors.mSurface },
-    CursorLine = { bg = colors.mOnPrimary },
-    LineNrAbove = { fg = colors.mTertiary },
-    CursorLineNr = { fg = colors.mPrimary, bold = true },
-    LineNrBelow = { fg = colors.mTertiary },
-    DiagnosticSignInfo = { fg = colors.mPrimary },
-    FloatBorder = { fg = colors.mPrimary },
-    Pmenu = { bg = colors.mSurface },
-    NormalFloat = { bg = colors.mSurface },
-    Title = { fg = colors.mPrimary },
-    FloatTitle = { fg = colors.mPrimary, bg = colors.mSurface },
-    -- Dashbord
-    SnacksDashboardNormal = { bg = colors.mSurface },
-    SnacksDashboardDesc = { fg = colors.secondary },
-    SnacksDashboardHeader = { fg = colors.mPrimary },
-    SnacksDashboardFile = { fg = colors.mPrimary },
-    SnacksDashboardDir = { fg = colors.mOutline },
-    SnacksDashboardIcon = { fg = colors.mPrimary },
-    -- SnacksDashboardKey = { fg = colors. },
-    SnacksDashboardTitle = { fg = colors.mPrimary, bold = true },
-    SnacksDashboardSpecial = { fg = colors.mPrimary },
-
-    -- Picker (/Explorer)
-    SnacksPicker = { bg = colors.mSurface },
-    -- SnacksPickerCmd = { fg = colors.test },
-    SnacksPickerCmdBuiltin = { fg = colors.test },
-    SnacksPickerCursorLine = { bg = colors.mOnSecondary },
-    SnacksPickerInputBorder = { fg = colors.mPrimary, bg = colors.mSurface },
-    SnacksPickerInputTitle = { fg = colors.mPrimary, bg = colors.mSurface },
-    SnacksPickerListCursorLine = { bg = colors.mOnSecondary },
-    SnacksPickerBorder = { fg = colors.mPrimary, bg = colors.mSurface },
-    SnacksPickerIcon = { fg = colors.mPrimary },
+    Normal = { bg = matugen_colors.mSurface },
+    NormalNC = { bg = matugen_colors.mSurface },
+    CursorLine = { bg = matugen_colors.mOnPrimary },
+    LineNrAbove = { fg = matugen_colors.mTertiary },
+    CursorLineNr = { fg = matugen_colors.mPrimary, bold = true },
+    LineNrBelow = { fg = matugen_colors.mTertiary },
+    DiagnosticSignInfo = { fg = matugen_colors.mPrimary },
+    FloatBorder = { fg = matugen_colors.mPrimary },
+    Pmenu = { bg = matugen_colors.mSurface },
+    NormalFloat = { bg = matugen_colors.mSurface },
+    Title = { fg = matugen_colors.mPrimary },
+    FloatTitle = { fg = matugen_colors.mPrimary, bg = matugen_colors.mSurface },
+    Directory = { fg = matugen_colors.blue },
 
     -- Telescope
-    TelescopeNormal = { bg = colors.mSurface },
-    TelescopeBorder = { fg = colors.mPrimary, bg = colors.mSurface },
-    TelescopePromptBorder = { fg = colors.mPrimary, bg = colors.mSurface },
-    TelescopePromptTitle = { fg = colors.mPrimary, bg = colors.mSurface },
+    TelescopeNormal = { bg = matugen_colors.mSurface },
+    TelescopeBorder = { fg = matugen_colors.mPrimary, bg = matugen_colors.mSurface },
+    TelescopePromptBorder = { fg = matugen_colors.mPrimary, bg = matugen_colors.mSurface },
+    TelescopePromptTitle = { fg = matugen_colors.mPrimary, bg = matugen_colors.mSurface },
 
     -- Noice
-    NoiceCmdlinePopupBorder = { fg = colors.mPrimary },
-    NoiceCmdlinePopupBorderLua = { fg = colors.mPrimary },
-    NoiceMini = { bg = colors.mSurface },
+    NoiceCmdlinePopupBorder = { fg = matugen_colors.mPrimary },
+    NoiceCmdlinePopupBorderLua = { fg = matugen_colors.mPrimary },
+    NoiceMini = { bg = matugen_colors.mSurface },
 
-    SnacksNotifierInfo = { bg = colors.mSurface },
-    SnacksNotifierBorderInfo = { fg = colors.mPrimary, bg = colors.mSurface },
-    SnacksNotifierTitleInfo = { fg = colors.mPrimary, bg = colors.mSurface },
+    -- Snacks Dashbord
+    SnacksDashboardNormal = { bg = matugen_colors.mSurface },
+    SnacksDashboardDesc = { fg = matugen_colors.mPrimary },
+    SnacksDashboardHeader = { fg = matugen_colors.mPrimary },
+    SnacksDashboardFile = { fg = matugen_colors.mPrimary },
+    SnacksDashboardDir = { fg = matugen_colors.mOutline },
+    SnacksDashboardIcon = { fg = matugen_colors.mPrimary },
+    SnacksDashboardKey = { fg = colors.mTertiary },
+    SnacksDashboardTitle = { fg = matugen_colors.mPrimary, bold = true },
+    SnacksDashboardSpecial = { fg = matugen_colors.mPrimary },
 
-    SnacksNotifierWarn = { bg = colors.mSurface },
-    SnacksNotifierBorderWarn = { fg = colors.warning, bg = colors.mSurface },
-    SnacksNotifierTitleWarn = { fg = colors.warning, bg = colors.mSurface },
+    -- Snacks Picker (/Explorer)
+    SnacksPicker = { bg = matugen_colors.mSurface },
+    -- SnacksPickerCmd = { fg = colors.test },
+    SnacksPickerCmdBuiltin = { fg = colors.test },
+    SnacksPickerCursorLine = { bg = matugen_colors.mOnSecondary },
+    SnacksPickerInputBorder = { fg = matugen_colors.mPrimary, bg = matugen_colors.mSurface },
+    SnacksPickerInputTitle = { fg = matugen_colors.mPrimary, bg = matugen_colors.mSurface },
+    SnacksPickerListCursorLine = { bg = matugen_colors.mOnSecondary },
+    SnacksPickerBorder = { fg = matugen_colors.mPrimary, bg = matugen_colors.mSurface },
+    SnacksPickerIcon = { fg = matugen_colors.mPrimary },
+    SnacksPickerGitStatusModified = { link = "DiagnosticInfo" },
 
-    SnacksNotifierError = { bg = colors.mSurface },
-    SnacksNotifierBorderError = { fg = colors.mError, bg = colors.mSurface },
-    SnacksNotifierTitleError = { fg = colors.mError, bg = colors.mSurface },
+    -- Snacks Notifier
+    SnacksNotifierInfo = { bg = matugen_colors.mSurface },
+    SnacksNotifierBorderInfo = { fg = matugen_colors.mPrimary, bg = matugen_colors.mSurface },
+    SnacksNotifierTitleInfo = { fg = matugen_colors.mPrimary, bg = matugen_colors.mSurface },
 
-    SnacksNotifierTrace = { bg = colors.mSurface },
-    SnacksNotifierBorderTrace = { fg = colors.mTertiary, bg = colors.mSurface },
-    SnacksNotifierTitleTrace = { fg = colors.mTertiary, bg = colors.mSurface },
+    SnacksNotifierWarn = { bg = matugen_colors.mSurface },
+    SnacksNotifierBorderWarn = { fg = colors.warning, bg = matugen_colors.mSurface },
+    SnacksNotifierTitleWarn = { fg = colors.warning, bg = matugen_colors.mSurface },
 
-    NoicePopupmenu = { bg = colors.orange, fg = colors.orange },
+    SnacksNotifierError = { bg = matugen_colors.mSurface },
+    SnacksNotifierBorderError = { fg = matugen_colors.mError, bg = matugen_colors.mSurface },
+    SnacksNotifierTitleError = { fg = matugen_colors.mError, bg = matugen_colors.mSurface },
+
+    SnacksNotifierTrace = { bg = matugen_colors.mSurface },
+    SnacksNotifierBorderTrace = { fg = matugen_colors.mTertiary, bg = matugen_colors.mSurface },
+    SnacksNotifierTitleTrace = { fg = matugen_colors.mTertiary, bg = matugen_colors.mSurface },
+
+    NoicePopupmenu = { bg = colors.test, fg = colors.test },
 
     -- WhichKey
-    WhichKey = { fg = colors.mTertiary, bg = colors.mSurface },
-    WhichKeyBorder = { fg = colors.mPrimary, bg = colors.mSurface },
-    WhichKeyNormal = { bg = colors.mSurface },
-    WhichKeyDesc = { fg = colors.mTertiary, bg = colors.mSurface },
-    WhichKeyIcon = { fg = colors.mTertiary, bg = colors.mSurface },
-    WhichKeyValue = { fg = colors.mTertiary, bg = colors.mSurface },
-    WhichKeyTitle = { fg = colors.mPrimary, bg = colors.mSurface },
-    WhichKeyGroup = { bg = colors.mSurface },
-    WhichKeySeparator = { fg = colors.mTertiary, bg = colors.mSurface },
+    WhichKey = { fg = matugen_colors.mTertiary, bg = matugen_colors.mSurface },
+    WhichKeyBorder = { fg = matugen_colors.mPrimary, bg = matugen_colors.mSurface },
+    WhichKeyNormal = { bg = matugen_colors.mSurface },
+    WhichKeyDesc = { fg = matugen_colors.mTertiary, bg = matugen_colors.mSurface },
+    WhichKeyIcon = { fg = matugen_colors.mTertiary, bg = matugen_colors.mSurface },
+    WhichKeyValue = { fg = matugen_colors.mTertiary, bg = matugen_colors.mSurface },
+    WhichKeyTitle = { fg = matugen_colors.mPrimary, bg = matugen_colors.mSurface },
+    WhichKeyGroup = { bg = matugen_colors.mSurface },
+    WhichKeySeparator = { fg = matugen_colors.mTertiary, bg = matugen_colors.mSurface },
 
     TroubleNormal = { link = "Normal" },
 
     -- MiniHipatternsTodo = { bg = colors.test },
     -- TodoBgTODO = { bg = colors.test },
-    TodoSignTODO = { fg = "#0db9d7", bg = colors.mSurface },
+    TodoSignTODO = { fg = "#0db9d7", bg = matugen_colors.mSurface },
+
+    MiniIconsRed = { fg = matugen_colors.red },
+    MiniIconsGreen = { fg = matugen_colors.green },
+    MiniIconsYellow = { fg = matugen_colors.yellow },
+    MiniIconsBlue = { fg = matugen_colors.blue },
+    MiniIconsCyan = { fg = matugen_colors.cyan },
+    MiniIconsOrange = { fg = matugen_colors.red },
+    MiniIconsAzure = { fg = matugen_colors.blue },
+
+    DiagnosticInfo = { fg = matugen_colors.blue },
+    DiagnosticWarn = { fg = matugen_colors.yellow },
+    DiagnosticError = { fg = matugen_colors.red },
+    DiagnosticHint = { fg = matugen_colors.cyan },
   }
 end
 

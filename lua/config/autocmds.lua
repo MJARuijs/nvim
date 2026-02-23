@@ -11,15 +11,15 @@ local autocmd = vim.api.nvim_create_autocmd
 -- autocmd("VeryLazy", {
 --   vim.keymap.del("n", "<leader>ft"),
 -- })
+if vim.g.neovide == false then
+  autocmd("VimEnter", {
+    command = ":silent !alacritty msg config 'window.padding={x=5,y=5}'",
+  })
 
-autocmd("VimEnter", {
-  command = ":silent !alacritty msg config 'window.padding={x=5,y=5}'",
-})
-
-autocmd("VimLeavePre", {
-  command = ":silent !alacritty msg config 'window.padding={x=20,y=20}'",
-})
-
+  autocmd("VimLeavePre", {
+    command = ":silent !alacritty msg config 'window.padding={x=20,y=20}'",
+  })
+end
 -- i = 1
 autocmd("Signal", {
   pattern = "SIGUSR1",

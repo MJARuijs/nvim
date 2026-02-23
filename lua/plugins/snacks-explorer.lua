@@ -8,6 +8,8 @@ return {
     { "<leader>ft", "" },
     { "<leader>fT", "" },
     { "<c-/>", "" },
+    { "<leader>gg", "" },
+    { "<leader>gG", "" },
   },
   opts = {
     scroll = { enabled = false },

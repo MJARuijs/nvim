@@ -1,5 +1,4 @@
 return {
-  -- dir = "~/.config/nvim-colorschemes/intellij.nvim",
   dir = "/home/marc/.config/nvim/colorschemes/intellij.nvim",
   lazy = false,
   priority = 900,

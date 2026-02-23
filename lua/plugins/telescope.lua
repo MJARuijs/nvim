@@ -80,8 +80,16 @@ return {
     }
     telescope.setup({
       defaults = {
+        -- vimgrep_arguments = {
+        --   "rg",
+        --   "--hidden",
+        --   "--ignored",
+        --   "--with-filename",
+        --   "--pretty",
+        -- },
         file_ignore_patterns = {
           "%.spec.ts",
+          -- ".git/",
         },
         layout_strategy = "flex",
         layout_config = {
