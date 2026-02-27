@@ -130,8 +130,8 @@ if vim.g.neovide then
   end
 
   vim.keymap.set("v", "<S-C-c>", copy, { silent = true, desc = "Copy" })
-  vim.keymap.set("v", "<C-c>", copy, { silent = true, desc = "Copy" })
-  vim.keymap.set({ "n", "i", "v", "c", "t" }, "<C-v>", paste, { silent = true, desc = "Paste" })
+  -- vim.keymap.set("v", "<C-c>", copy, { silent = true, desc = "Copy" })
+  -- vim.keymap.set({ "n", "i", "v", "c", "t" }, "<C-v>", paste, { silent = true, desc = "Paste" })
   vim.keymap.set({ "n", "i", "v", "c", "t" }, "<S-C-v>", paste, { silent = true, desc = "Paste" })
 
   local base_scale_factor = vim.g.neovide_scale_factor
