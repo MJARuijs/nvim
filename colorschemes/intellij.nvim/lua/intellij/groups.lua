@@ -201,6 +201,7 @@ M.setup = function()
     Title = { fg = matugen_colors.mPrimary },
     FloatTitle = { fg = matugen_colors.mPrimary, bg = matugen_colors.mSurface },
     Directory = { fg = matugen_colors.blue },
+    Folded = { bg = matugen_colors.mSuface },
 
     -- Telescope
     TelescopeNormal = { bg = matugen_colors.mSurface },
