@@ -1,35 +1,26 @@
 return {
-	mPrimary = "#fcb0d6",
-	-- mPrimary = "#ff0000",
-	mOnPrimary = "#511d3c",
-
-	mSecondary = "#dfbdcc",
-	mOnSecondary = "#402a35",
-
-	mTertiary = "#f3ba9b",
-	mOnTertiary = "#4a2812",
-
-	mError = "#ffb4ab",
+	mPrimary = "#98CCF9",
+	mOnPrimary = "#003350",
+	mSecondary = "#B8C8D9",
+	mOnSecondary = "#22323F",
+	mTertiary = "#D0BFE7",
+	mOnTertiary = "#372B4A",
+	mError = "#FFB4AB",
 	mOnError = "#690005",
-
-	mSurface = "#181115",
-	mOnSurface = "#eedfe3",
-
-	mSurfaceVariant = "#251d21",
-	mOnSurfaceVariant = "#d4c2c8",
-
-	mOutline = "#9c8d93",
+	mSurface = "#101417",
+	mOnSurface = "#E0E3E8",
+	mSurfaceVariant = "#1C2024",
+	mOnSurfaceVariant = "#C1C7CE",
+	mOutline = "#8C9198",
 	mShadow = "#000000",
-
-	mHover = "#f3ba9b",
-	mOnHover = "#4a2812",
-
+	mHover = "#D0BFE7",
+	mOnHover = "#372B4A",
 	black = "#181818",
-	red = "#ffb4ab",
-	green = "#fcb0d6",
-	yellow = "#874b6c",
-	blue = "#fcb0d6",
-	magenta = "#f3ba9b",
-	cyan = "#dfbdcc",
+	red = "#FFB4AB",
+	green = "#98CCF9",
+	yellow = "#2A638A",
+	blue = "#98CCF9",
+	magenta = "#D0BFE7",
+	cyan = "#B8C8D9",
 	white = "#BAC2DE",
 }

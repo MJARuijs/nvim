@@ -1,6 +1,8 @@
 local M = {}
 
-M.setup = function()
+local result = {}
+
+local function reloadTheme()
   package.loaded["intellij.my_palette"] = nil
   package.loaded["intellij.matugen"] = nil
 
@@ -51,9 +53,11 @@ M.setup = function()
       theme = lualine_theme,
     },
   })
-  return {
+  result = {
 
     DiagnosticUnnecessary = { fg = colors.unused_code },
+
+    ["@punctuation.bracket"] = { fg = matugen_colors.mPrimary },
 
     -- Angular
     ["@tag.angular"] = { fg = colors.tag },
@@ -101,7 +105,7 @@ M.setup = function()
     ["@lsp.typemod.property.declaration.typescript"] = { fg = colors.class_name },
     ["@lsp.typemod.member.declaration.typescript"] = { fg = colors.class_name },
     ["@operator.typescript"] = { fg = colors.text },
-    ["@punctuation.bracket.typescript"] = { fg = colors.text },
+    -- ["@punctuation.bracket.typescript"] = { fg = colors.text },
     ["@punctuation.delimiter.typescript"] = { fg = colors.text },
     ["@type.typescript"] = { fg = colors.text },
     ["@type.builtin.typescript"] = { fg = colors.keyword },
@@ -184,6 +188,9 @@ M.setup = function()
 
     -- Lua
     ["@keyword.conditional.lua"] = { fg = "#ff757f" },
+    ["@keyword.repeat.lua"] = { fg = "#ff757f" },
+    ["@module.builtin.lua"] = { fg = colors.title },
+    ["@lsp.typemod.variable.defaultLibrary.lua"] = { fg = colors.title },
 
     -----------------
     ---- GENERAL ----
@@ -202,6 +209,8 @@ M.setup = function()
     FloatTitle = { fg = matugen_colors.mPrimary, bg = matugen_colors.mSurface },
     Directory = { fg = matugen_colors.blue },
     Folded = { bg = matugen_colors.mSuface },
+    SnacksIndentScope = { fg = matugen_colors.mPrimary },
+    SnacksIndent = { fg = matugen_colors.mOnSecondary },
 
     -- Telescope
     TelescopeNormal = { bg = matugen_colors.mSurface },
@@ -235,6 +244,10 @@ M.setup = function()
     SnacksPickerListCursorLine = { bg = matugen_colors.mOnSecondary },
     SnacksPickerBorder = { fg = matugen_colors.mPrimary, bg = matugen_colors.mSurface },
     SnacksPickerIcon = { fg = matugen_colors.mPrimary },
+    SnacksPickerToggleHidden = { fg = matugen_colors.mOnSurfaceVariant, bg = matugen_colors.mSurface },
+    SnacksPickerToggleIgnored = { fg = matugen_colors.mOnSurfaceVariant, bg = matugen_colors.mSurface },
+    SnacksPickerPrompt = { fg = matugen_colors.mPrimary, bg = matugen_colors.mSurface },
+    -- SnacksPickerDir = { fg = colors.test, bg = matugen_colors.mSurface },
     SnacksPickerGitStatusModified = { link = "DiagnosticInfo" },
 
     -- Snacks Notifier
@@ -285,7 +298,17 @@ M.setup = function()
     DiagnosticWarn = { fg = matugen_colors.yellow },
     DiagnosticError = { fg = matugen_colors.red },
     DiagnosticHint = { fg = matugen_colors.cyan },
+
+    GitSignsAdd = { fg = matugen_colors.mPrimary },
+    GitSignsChange = { fg = matugen_colors.mOnPrimary },
   }
+  return result
+end
+
+M.setup = function()
+  pcall(reloadTheme)
+
+  return result
 end
 
 return M
