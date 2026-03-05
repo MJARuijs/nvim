@@ -5,11 +5,12 @@ return {
   class_name = "#57AAF7",
   error = "#c53b53",
   decorator = "#E6E079",
-  tag = "#E6E079",
+  tag = "#D5B778",
   title = "#4ddad7",
   background = "#c8d3f5",
   test = "#00ff00",
   string = "#6AAB73",
   variable = "#C77DBB",
   warning = "#ffc777",
+  hint = "#4Fd6BE",
 }
