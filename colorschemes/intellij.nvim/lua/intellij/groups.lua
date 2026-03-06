@@ -63,12 +63,12 @@ local function reloadTheme()
     ["@tag.angular"] = { fg = colors.tag },
     ["@tag.attribute.angular"] = { fg = colors.text },
     ["@tag.delimiter.angular"] = { fg = colors.tag },
-    ["@keyword.angular"] = { fg = colors.variable },
+    ["@keyword.angular"] = { fg = colors.keyword },
     ["@property.angular"] = { fg = colors.class_name },
     ["@boolean.angular"] = { fg = colors.keyword },
 
     ["@variable.angular"] = { fg = colors.variable },
-    ["@punctuation.delimiter.angular"] = { fg = colors.string },
+    -- ["@punctuation.delimiter.angular"] = { fg = colors.string },
     ["@variable.builtin.angular"] = { fg = colors.variable },
     -- ["@string.angular"] = { fg = colors.string },
     ["@nospell.angular"] = { link = 0 },
@@ -77,7 +77,7 @@ local function reloadTheme()
     ["@spell.html"] = { link = 0 },
     ["@tag.html"] = { fg = colors.tag },
     ["@tag.attribute.html"] = { fg = colors.variable },
-    ["@tag.delimiter.html"] = { fg = colors.text },
+    ["@tag.delimiter.html"] = { fg = colors.tag },
     ["@comment.html"] = { link = "Comment" },
 
     -- Typescript
@@ -164,7 +164,6 @@ local function reloadTheme()
     String = { fg = colors.string },
     Keyword = { fg = colors.keyword },
     Statement = { bold = false },
-    DiagnosticDeprecated = { strikethrough = false },
 
     -- Typescript
     typescriptResponseProp = { link = 0 },
@@ -234,6 +233,13 @@ local function reloadTheme()
     SnacksDashboardTitle = { fg = matugen_colors.mPrimary, bold = true },
     SnacksDashboardSpecial = { fg = matugen_colors.mPrimary },
 
+    SnacksDiffContext = { bg = matugen_colors.mSurface },
+    SnacksPickerCode = { bg = matugen_colors.mSurface },
+    SnacksPickerSearch = { bg = matugen_colors.mSurface },
+    SnacksPickerPickWin = { bg = matugen_colors.mSurface },
+    SnacksPickerToggle = { bg = matugen_colors.mSurface },
+    SnacksPickerPreviewCursorLine = { bg = matugen_colors.mSurface },
+
     -- Snacks Picker (/Explorer)
     SnacksPicker = { bg = matugen_colors.mSurface },
     -- SnacksPickerCmd = { fg = colors.test },
@@ -298,7 +304,16 @@ local function reloadTheme()
     DiagnosticWarn = { fg = matugen_colors.yellow },
     DiagnosticError = { fg = matugen_colors.red },
     DiagnosticHint = { fg = matugen_colors.cyan },
+    DiagnosticDeprecated = { strikethrough = false },
+    -- LspReferenceRead = { bg = colors.test },
 
+    -- CocDeprecatedHighlight = { fg = colors.error, bg = matugen_colors.mSurface },
+    DiagnosticVirtualTextInfo = { bg = matugen_colors.mSurface },
+    DiagnosticVirtualTextWarn = { fg = colors.warning, bg = matugen_colors.mSurface },
+    DiagnosticVirtualTextError = { fg = colors.error, bg = matugen_colors.mSurface },
+    DiagnosticVirtualTextHint = { fg = colors.hint, bg = matugen_colors.mSurface },
+
+    -- DiagnosticDeprecated = { strikethrough = false },
     GitSignsAdd = { fg = matugen_colors.mPrimary },
     GitSignsChange = { fg = matugen_colors.mOnPrimary },
   }

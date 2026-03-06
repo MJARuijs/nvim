@@ -50,6 +50,7 @@ return {
 
     telescope.load_extension("unique-picker")
 
+    vim.keymap.set("n", "gi", builtin.lsp_implementations, { desc = "Telescope find implementations" })
     vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
     vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live grep" })
     vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" })
@@ -121,6 +122,9 @@ return {
         },
         buffers = {
           sort_mru = true,
+        },
+        lsp_implementations = {
+          reuse_win = true,
         },
       },
     })
