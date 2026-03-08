@@ -48,7 +48,7 @@ return {
     local actions = require("telescope.actions")
     -- local unique_picker = require("unique-picker")
 
-    telescope.load_extension("unique-picker")
+    -- telescope.load_extension("unique-picker")
 
     vim.keymap.set("n", "gi", builtin.lsp_implementations, { desc = "Telescope find implementations" })
     vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
@@ -57,7 +57,7 @@ return {
     vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
     -- vim.keymap.set("n", "gr", unique_picker.test, { desc = "REFERENCES" })
     vim.keymap.set("n", "<leader>zr", function()
-      telescope.extensions["unique-picker"].stuff()
+      -- telescope.extensions["unique-picker"].stuff()
     end, { desc = "REFERENCES" })
 
     -- vim.keymap.set("n", "zr", function()
