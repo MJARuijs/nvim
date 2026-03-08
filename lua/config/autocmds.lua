@@ -11,7 +11,7 @@ local autocmd = vim.api.nvim_create_autocmd
 -- autocmd("VeryLazy", {
 --   vim.keymap.del("n", "<leader>ft"),
 -- })
-if vim.g.neovide == false then
+if vim.g.neovide ~= true then
   autocmd("VimEnter", {
     command = ":silent !alacritty msg config 'window.padding={x=5,y=5}'",
   })
