@@ -35,7 +35,7 @@ local function on_list(options)
 end
 
 return {
-  "nvim-telescope/telescope.nvim",
+  "MJARuijs/telescope.nvim",
   tag = "*",
   dependencies = {
     "nvim-lua/plenary.nvim",
@@ -56,9 +56,9 @@ return {
     vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" })
     vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
     -- vim.keymap.set("n", "gr", unique_picker.test, { desc = "REFERENCES" })
-    vim.keymap.set("n", "<leader>zr", function()
-      -- telescope.extensions["unique-picker"].stuff()
-    end, { desc = "REFERENCES" })
+    -- vim.keymap.set("n", "<leader>zr", function()
+    --   telescope.extensions["unique-picker"].stuff()
+    -- end, { desc = "REFERENCES" })
 
     -- vim.keymap.set("n", "zr", function()
     --   builtin.lsp_references({ on_list = create_unique_list })

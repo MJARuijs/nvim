@@ -132,6 +132,7 @@ local function reloadTheme()
     ["@keyword.conditional.java"] = { fg = colors.keyword },
     ["@keyword.repeat.java"] = { fg = colors.keyword },
     ["@keyword.exception.java"] = { fg = colors.keyword },
+    ["@keyword.java"] = { fg = colors.keyword },
     ["@lsp.type.property.java"] = { fg = colors.variable },
     -- ["@lsp.type.parameter.java"] = { fg = "#ffc777" },
     ["@lsp.type.parameter.java"] = { fg = "#f4c990" },
@@ -152,13 +153,12 @@ local function reloadTheme()
     -- SnacksDashboardIcon = { fg = "#65bcff" },
     -- SnacksDashboardTitle = { fg = "#82aaff", bold = true },
     --
-    -- -- Picker (/Explorer)
-    -- SnacksPicker = { bg = colors.bg },
-    -- -- SnacksPickerInputSearch = { bg = colors.bg },
-    -- SnacksPickerBorder = { fg = colors.orange, bg = colors.bg },
-    --
-    -- DiagnosticUnnecessary = { fg = colors.unused_code },
-    --
+
+    -- C/C++
+    cConditional = { fg = colors.keyword },
+    cParen = { fg = matugen_colors.mPrimary },
+    cBlock = { fg = matugen_colors.mPrimary },
+
     -- General LSP
     Comment = { fg = "#7A7E85", italic = true },
     String = { fg = colors.string },
