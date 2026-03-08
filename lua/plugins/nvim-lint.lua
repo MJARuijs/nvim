@@ -1,5 +1,6 @@
 return {
   "mfussenegger/nvim-lint",
+  enabled = false,
   event = {
     "BufReadPre",
     "BufNewFile",
@@ -22,7 +23,9 @@ return {
     })
 
     vim.keymap.set("n", "<leader>l", function()
-      lint.try_lint()
+      -- lint.try_lint(opts = {
+      --           "@angular-eslint/prefer-standalone" = "warn"
+      --       })
     end, { desc = "Trigger linting for current file" })
   end,
 }
