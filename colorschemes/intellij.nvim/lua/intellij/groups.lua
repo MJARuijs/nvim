@@ -196,7 +196,7 @@ local function reloadTheme()
     -----------------
     Normal = { bg = matugen_colors.mSurface },
     NormalNC = { bg = matugen_colors.mSurface },
-    CursorLine = { bg = matugen_colors.mOnPrimary },
+    CursorLine = { bg = matugen_colors.mOnSecondary },
     LineNrAbove = { fg = matugen_colors.mTertiary },
     CursorLineNr = { fg = matugen_colors.mPrimary, bold = true },
     LineNrBelow = { fg = matugen_colors.mTertiary },
@@ -208,6 +208,11 @@ local function reloadTheme()
     FloatTitle = { fg = matugen_colors.mPrimary, bg = matugen_colors.mSurface },
     Directory = { fg = matugen_colors.blue },
     Folded = { bg = matugen_colors.mSuface },
+
+    TabLine = { bg = matugen_colors.mSurfaceVariant },
+    TabLineFill = { bg = matugen_colors.mSurface },
+    TabLineSel = { bg = matugen_colors.mOnSurfaceVariant },
+
     SnacksIndentScope = { fg = matugen_colors.mPrimary },
     SnacksIndent = { fg = matugen_colors.mOnSecondary },
 
@@ -305,7 +310,7 @@ local function reloadTheme()
     DiagnosticError = { fg = matugen_colors.red },
     DiagnosticHint = { fg = matugen_colors.cyan },
     DiagnosticDeprecated = { strikethrough = false },
-    -- LspReferenceRead = { bg = colors.test },
+    LspReferenceRead = { bg = matugen_colors.mOnSecondary },
 
     -- CocDeprecatedHighlight = { fg = colors.error, bg = matugen_colors.mSurface },
     DiagnosticVirtualTextInfo = { bg = matugen_colors.mSurface },
