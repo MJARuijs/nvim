@@ -208,6 +208,7 @@ local function reloadTheme()
     FloatTitle = { fg = matugen_colors.mPrimary, bg = matugen_colors.mSurface },
     Directory = { fg = matugen_colors.blue },
     Folded = { bg = matugen_colors.mSuface },
+    Visual = { bg = matugen_colors.mOnSecondary },
 
     TabLine = { bg = matugen_colors.mSurfaceVariant },
     TabLineFill = { bg = matugen_colors.mSurface },
