@@ -22,7 +22,7 @@ return {
     },
     formatters = {
       stylua = {
-        append_args = { "--indent-width", "2", "--column-width", "160" },
+        append_args = { "--indent-width", "4", "--column-width", "160" },
       },
       astyle = {
         append_args = { "--indent=spaces=4", "--squeeze-ws" },
