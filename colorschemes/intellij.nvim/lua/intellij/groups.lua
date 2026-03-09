@@ -150,6 +150,7 @@ local function reloadTheme()
         ["@character.special.java"] = { fg = colors.text },
         ["@lsp.mod.importDeclaration.java"] = { fg = colors.text },
         ["@punctuation.delimiter.java"] = { fg = colors.text },
+        ["@function.builtin.java"] = { fg = colors.keyword },
 
         -- ["@lsp.typemod.parameter.declat"] = { fg = colors.class_name },
 
