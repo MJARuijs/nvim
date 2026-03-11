@@ -313,10 +313,13 @@ local function reloadTheme()
 
         TroubleNormal = { link = "Normal" },
 
-        -- MiniHipatternsTodo = { bg = colors.test },
-        -- TodoBgTODO = { bg = colors.test },
-        TodoSignTODO = { fg = "#0db9d7", bg = matugen_colors.mSurface },
-
+        TodoSignFIX = { bg = matugen_colors.mSurface },
+        TodoSignNOTE = { bg = matugen_colors.mSurface },
+        TodoSignWARN = { bg = matugen_colors.mSurface },
+        TodoSignPERF = { bg = matugen_colors.mSurface },
+        TodoSignTEST = { bg = matugen_colors.mSurface },
+        TodoSignHACK = { bg = matugen_colors.mSurface },
+        TodoSignTODO = { bg = matugen_colors.mSurface },
         MiniIconsRed = { fg = matugen_colors.red },
         MiniIconsGreen = { fg = matugen_colors.green },
         MiniIconsYellow = { fg = matugen_colors.yellow },
