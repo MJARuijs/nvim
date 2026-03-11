@@ -58,6 +58,7 @@ local function reloadTheme()
         DiagnosticUnnecessary = { fg = colors.unused_code },
 
         ["@punctuation.bracket"] = { fg = matugen_colors.mPrimary },
+        ["@operator"] = { fg = colors.text },
 
         -- Angular
         ["@tag.angular"] = { fg = colors.tag },
@@ -66,9 +67,10 @@ local function reloadTheme()
         ["@keyword.angular"] = { fg = colors.keyword },
         ["@property.angular"] = { fg = colors.class_name },
         ["@boolean.angular"] = { fg = colors.keyword },
-
         ["@variable.angular"] = { fg = colors.variable },
-        -- ["@punctuation.delimiter.angular"] = { fg = colors.string },
+        ["@punctuation.delimiter.angular"] = { fg = colors.text },
+        ["@punctuation.bracket.angular"] = { fg = colors.text },
+        ["@punctuation.special.angular"] = { fg = colors.text },
         ["@variable.builtin.angular"] = { fg = colors.variable },
         -- ["@string.angular"] = { fg = colors.string },
         ["@nospell.angular"] = { link = 0 },
@@ -266,7 +268,7 @@ local function reloadTheme()
         SnacksPickerPreviewCursorLine = { bg = matugen_colors.mSurface },
         SnacksPickerTree = { fg = matugen_colors.mOnSecondary },
 
-        -- Snacks Picker (/Explorer)
+        -- Snacks Picker ()
         SnacksPicker = { bg = matugen_colors.mSurface },
         SnacksPickerCmdBuiltin = { fg = colors.test },
         SnacksPickerCursorLine = { bg = matugen_colors.mOnSecondary },
