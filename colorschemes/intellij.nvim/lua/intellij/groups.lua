@@ -335,15 +335,15 @@ local function reloadTheme()
         DiagnosticDeprecated = { strikethrough = false },
         LspReferenceRead = { bg = matugen_colors.mOnSecondary },
 
-        -- CocDeprecatedHighlight = { fg = colors.error, bg = matugen_colors.mSurface },
         DiagnosticVirtualTextInfo = { bg = matugen_colors.mSurface },
         DiagnosticVirtualTextWarn = { fg = colors.warning, bg = matugen_colors.mSurface },
         DiagnosticVirtualTextError = { fg = colors.error, bg = matugen_colors.mSurface },
         DiagnosticVirtualTextHint = { fg = colors.hint, bg = matugen_colors.mSurface },
 
-        -- DiagnosticDeprecated = { strikethrough = false },
         GitSignsAdd = { fg = matugen_colors.mPrimary },
         GitSignsChange = { fg = matugen_colors.mOnPrimary },
+
+        WinSeparator = { fg = matugen_colors.mOnSecondary },
     }
     return result
 end
