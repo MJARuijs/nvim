@@ -253,9 +253,10 @@ local function reloadTheme()
         SnacksDashboardFile = { fg = matugen_colors.mPrimary },
         SnacksDashboardDir = { fg = matugen_colors.mOutline },
         SnacksDashboardIcon = { fg = matugen_colors.mPrimary },
-        SnacksDashboardKey = { fg = colors.mTertiary },
+        SnacksDashboardKey = { fg = matugen_colors.mTertiary },
         SnacksDashboardTitle = { fg = matugen_colors.mPrimary, bold = true },
         SnacksDashboardSpecial = { fg = matugen_colors.mPrimary },
+        SnacksDashboardFooter = { fg = matugen_colors.mPrimary },
 
         SnacksDiffContext = { bg = matugen_colors.mSurface },
         SnacksPickerCode = { bg = matugen_colors.mSurface },
@@ -263,10 +264,10 @@ local function reloadTheme()
         SnacksPickerPickWin = { bg = matugen_colors.mSurface },
         SnacksPickerToggle = { bg = matugen_colors.mSurface },
         SnacksPickerPreviewCursorLine = { bg = matugen_colors.mSurface },
+        SnacksPickerTree = { fg = matugen_colors.mOnSecondary },
 
         -- Snacks Picker (/Explorer)
         SnacksPicker = { bg = matugen_colors.mSurface },
-        -- SnacksPickerCmd = { fg = colors.test },
         SnacksPickerCmdBuiltin = { fg = colors.test },
         SnacksPickerCursorLine = { bg = matugen_colors.mOnSecondary },
         SnacksPickerInputBorder = { fg = matugen_colors.mPrimary, bg = matugen_colors.mSurface },

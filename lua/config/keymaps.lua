@@ -11,32 +11,34 @@
 -- vim.api.nvim_set_keymap("n", "<A-q>", "<cmd><leader>bd<CR>", { noremap = true, silent = true })
 -- vim.keymap.del("n", "<leader>ft")
 vim.keymap.set("n", "<leader>gG", function()
-  Snacks.lazygit({ cwd = LazyVim.root.git() })
+    Snacks.lazygit({ cwd = LazyVim.root.git() })
 end, { desc = "Lazygit (root)" })
 
 vim.keymap.set("n", "<leader>gg", function()
-  Snacks.lazygit()
+    Snacks.lazygit()
 end, { desc = "Lazygit (cwd)" })
 
 vim.keymap.set("n", "<leader>ft", function()
-  Snacks.terminal()
+    Snacks.terminal()
 end, { desc = "Terminal (cwd)" })
 
 vim.keymap.set("n", "<leader>fT", function()
-  Snacks.terminal(nil, { cwd = LazyVim.root() })
+    Snacks.terminal(nil, { cwd = LazyVim.root() })
 end, { desc = "Terminal (Root Dir)" })
 
 vim.keymap.set({ "n", "t" }, "<c-/>", function()
-  Snacks.terminal()
+    Snacks.terminal()
 end, { desc = "Terminal (cwd)" })
 
-vim.keymap.set("n", "<leader>e", function()
-  Snacks.explorer()
-end, { desc = "Explorer (cwd)" })
+-- vim.keymap.set("n", "<leader>e", function()
+--     Snacks.explorer({
+--         tree = true,
+--     })
+-- end, { desc = "Explorer (cwd)" })
 
-vim.keymap.set("n", "<leader>E", function()
-  Snacks.explorer(nil, { cwd = LazyVim.root() })
-end, { desc = "Explorer (Root Dir)" })
+-- vim.keymap.set("n", "<leader>E", function()
+--     Snacks.explorer(nil, { cwd = LazyVim.root() })
+-- end, { desc = "Explorer (Root Dir)" })
 
 vim.api.nvim_set_keymap("n", "<A-h>", "<cmd>vertical resize -1<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<A-j>", "<cmd>horizontal resize -1<CR>", { noremap = true, silent = true })
@@ -63,15 +65,15 @@ vim.keymap.set("n", "c", "d", { desc = "Cut" })
 vim.keymap.set("n", "cc", "dd", { desc = "Cut" })
 
 vim.keymap.set("n", "<A-e>", function()
-  Snacks.explorer.open()
+    Snacks.explorer.open()
 end, { desc = "Open Explorer" })
 
 vim.api.nvim_create_autocmd("User", {
-  pattern = "VeryLazy",
-  callback = function()
-    vim.keymap.del("n", "L")
-    vim.keymap.del("n", "H")
-  end,
+    pattern = "VeryLazy",
+    callback = function()
+        vim.keymap.del("n", "L")
+        vim.keymap.del("n", "H")
+    end,
 })
 
 local opts = { noremap = true, silent = true }
@@ -80,41 +82,41 @@ local ng = require("ng")
 -- vim.keymap.set("n", "<leader>ac", ng.goto_component_with_template_file, opts)
 -- vim.keymap.set("n", "<leader>aT", ng.get_template_tcb, opts)
 vim.keymap.set("n", "<leader>ct", function()
-  local buffer_name = vim.api.nvim_buf_get_name(0)
-  if string.match(buffer_name, ".html$") then
-    ng.goto_component_with_template_file({})
-  else
-    ng.goto_template_for_component({})
-  end
+    local buffer_name = vim.api.nvim_buf_get_name(0)
+    if string.match(buffer_name, ".html$") then
+        ng.goto_component_with_template_file({})
+    else
+        ng.goto_template_for_component({})
+    end
 end, { desc = "Toggle Component/Template" })
 local width = 0
 vim.keymap.set("n", "<leader>zt", function()
-  local currentWidth = vim.api.nvim_win_get_width(0)
-  vim.api.nvim_set_option("winwidth", currentWidth)
-  width = currentWidth
-  -- print(vim.api.nvim_win_set_width(0, vim.api.nvim_win_get_width(0)))
+    local currentWidth = vim.api.nvim_win_get_width(0)
+    vim.api.nvim_set_option("winwidth", currentWidth)
+    width = currentWidth
+    -- print(vim.api.nvim_win_set_width(0, vim.api.nvim_win_get_width(0)))
 end)
 
 vim.keymap.set("n", "<leader>za", function()
-  local currentWidth = vim.api.nvim_win_get_width(0)
-  vim.api.nvim_win_set_width(0, width)
-  -- vim.api.nvim_set_option("winwidth", width)
-  -- print(vim.api.nvim_win_set_width(0, vim.api.nvim_win_get_width(0)))
+    local currentWidth = vim.api.nvim_win_get_width(0)
+    vim.api.nvim_win_set_width(0, width)
+    -- vim.api.nvim_set_option("winwidth", width)
+    -- print(vim.api.nvim_win_set_width(0, vim.api.nvim_win_get_width(0)))
 end)
 
 vim.keymap.set("n", "<leader>zp", function()
-  local win_number = vim.api.nvim_get_current_win()
-  local window_options = vim.wo[win_number]
-  local all_options = vim.api.nvim_get_all_options_info()
-  -- vim.api.nvim_set_option_value()
-  local result = ""
-  for key, val in pairs(all_options) do
-    if val.global_local == false and val.scope == "win" then
-      result = result .. "|" .. key .. "=" .. tostring(window_options[key] or "<not set>") .. "\n"
+    local win_number = vim.api.nvim_get_current_win()
+    local window_options = vim.wo[win_number]
+    local all_options = vim.api.nvim_get_all_options_info()
+    -- vim.api.nvim_set_option_value()
+    local result = ""
+    for key, val in pairs(all_options) do
+        if val.global_local == false and val.scope == "win" then
+            result = result .. "|" .. key .. "=" .. tostring(window_options[key] or "<not set>") .. "\n"
+        end
     end
-  end
-  print(result)
-  print(width)
+    print(result)
+    print(width)
 end)
 
 -----------------------------------------------------------------------------------------------------
@@ -122,21 +124,21 @@ end)
 -----------------------------------------------------------------------------------------------------
 
 if vim.g.neovide then
-  local function copy()
-    vim.cmd([[normal! "+y]])
-  end
-  local function paste()
-    vim.api.nvim_paste(vim.fn.getreg("+"), true, -1)
-  end
+    local function copy()
+        vim.cmd([[normal! "+y]])
+    end
+    local function paste()
+        vim.api.nvim_paste(vim.fn.getreg("+"), true, -1)
+    end
 
-  vim.keymap.set("v", "<S-C-c>", copy, { silent = true, desc = "Copy" })
-  -- vim.keymap.set("v", "<C-c>", copy, { silent = true, desc = "Copy" })
-  -- vim.keymap.set({ "n", "i", "v", "c", "t" }, "<C-v>", paste, { silent = true, desc = "Paste" })
-  vim.keymap.set({ "n", "i", "v", "c", "t" }, "<S-C-v>", paste, { silent = true, desc = "Paste" })
+    vim.keymap.set("v", "<S-C-c>", copy, { silent = true, desc = "Copy" })
+    -- vim.keymap.set("v", "<C-c>", copy, { silent = true, desc = "Copy" })
+    -- vim.keymap.set({ "n", "i", "v", "c", "t" }, "<C-v>", paste, { silent = true, desc = "Paste" })
+    vim.keymap.set({ "n", "i", "v", "c", "t" }, "<S-C-v>", paste, { silent = true, desc = "Paste" })
 
-  local base_scale_factor = vim.g.neovide_scale_factor
+    local base_scale_factor = vim.g.neovide_scale_factor
 
-  vim.api.nvim_set_keymap("n", "<C-=>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>", { silent = true })
-  vim.api.nvim_set_keymap("n", "<C-->", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<CR>", { silent = true })
-  vim.api.nvim_set_keymap("n", "<C-+>", ":lua vim.g.neovide_scale_factor = " .. base_scale_factor .. "<CR>", { silent = true })
+    vim.api.nvim_set_keymap("n", "<C-=>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>", { silent = true })
+    vim.api.nvim_set_keymap("n", "<C-->", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<CR>", { silent = true })
+    vim.api.nvim_set_keymap("n", "<C-+>", ":lua vim.g.neovide_scale_factor = " .. base_scale_factor .. "<CR>", { silent = true })
 end
