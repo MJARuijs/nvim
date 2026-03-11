@@ -165,6 +165,13 @@ local function reloadTheme()
         -- SnacksDashboardTitle = { fg = "#82aaff", bold = true },
         --
 
+        -- Dart
+        ["@lsp.type.annotation.dart"] = { fg = colors.decorator },
+        ["@lsp.typemod.property.annotation.dart"] = { fg = colors.decorator },
+        ["@lsp.type.property.dart"] = { fg = colors.variable },
+        ["@lsp.mod.label.dart"] = { fg = colors.label },
+        -- ["@lsp.typemod.class.dart"] = { fg = colors.test },
+
         -- C/C++
         cConditional = { fg = colors.keyword },
         cParen = { fg = matugen_colors.mPrimary },
