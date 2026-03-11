@@ -57,6 +57,9 @@ require("neotest").setup({
 require("flutter-tools").setup({
     -- flutter_path = "/home/marc/dev/flutter/flutter/bin",
     root_patterns = { ".git", "pubspec.yaml" },
+    -- widget_guides = {
+    --     enabled = true,
+    -- },
     lsp = {
         color = { -- show the derived colours for dart variables
             enabled = true, -- whether or not to highlight color variables at all, only supported on flutter >= 2.10
