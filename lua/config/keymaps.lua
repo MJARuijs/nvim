@@ -78,6 +78,7 @@ vim.api.nvim_create_autocmd("User", {
 
 local opts = { noremap = true, silent = true }
 local ng = require("ng")
+local buffer_cursor_history = require("buffer-cursor-memory")
 -- vim.keymap.set("n", "<leader>at", ng.goto_template_for_component, opts)
 -- vim.keymap.set("n", "<leader>ac", ng.goto_component_with_template_file, opts)
 -- vim.keymap.set("n", "<leader>aT", ng.get_template_tcb, opts)
@@ -88,7 +89,13 @@ vim.keymap.set("n", "<leader>ct", function()
     else
         ng.goto_template_for_component({})
     end
+    -- vim.schedule(function()
+    --     vim.schedule(function()
+    --         buffer_cursor_history.restore_position()
+    --     end)
+    -- end)
 end, { desc = "Toggle Component/Template" })
+
 local width = 0
 vim.keymap.set("n", "<leader>zt", function()
     local currentWidth = vim.api.nvim_win_get_width(0)
