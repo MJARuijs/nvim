@@ -1,3 +1,5 @@
+local config = require("telescope.config")
+
 local mergeTables = function(t1, t2)
     local result = {}
     for k, v in pairs(t1) do
@@ -34,6 +36,23 @@ local function on_list(options)
     vim.cmd("botright copen")
 end
 
+local base_ignore_patterns = {
+    "%.spec.ts",
+}
+
+local function toggleIgnoredFilePatterns()
+    local current_ignore_patterns = config.values["file_ignore_patterns"]
+    if #current_ignore_patterns == 0 then
+        for _, v in pairs(base_ignore_patterns) do
+            table.insert(config.values.file_ignore_patterns, v)
+        end
+        return true
+    else
+        config.values["file_ignore_patterns"] = {}
+        return false
+    end
+end
+
 return {
     "MJARuijs/telescope.nvim",
     tag = "*",
@@ -46,26 +65,17 @@ return {
         local builtin = require("telescope.builtin")
         local telescope = require("telescope")
         local actions = require("telescope.actions")
-        -- local unique_picker = require("unique-picker")
-
-        -- telescope.load_extension("unique-picker")
 
         vim.keymap.set("n", "gi", builtin.lsp_implementations, { desc = "Telescope find implementations" })
         vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
         vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live grep" })
         vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" })
         vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
-        -- vim.keymap.set("n", "gr", unique_picker.test, { desc = "REFERENCES" })
-        -- vim.keymap.set("n", "<leader>zr", function()
-        --   telescope.extensions["unique-picker"].stuff()
-        -- end, { desc = "REFERENCES" })
+        vim.keymap.set("n", "<leader>fz", function()
+            toggleIgnoredFilePatterns()
+        end, { desc = "Enable Ignored Files" })
 
-        -- vim.keymap.set("n", "zr", function()
-        --   builtin.lsp_references({ on_list = create_unique_list })
-        --   -- vim.lsp.buf.references(nil, { on_list = on_list })
-        --   -- vim.lsp.buf.references()
-        -- end, { desc = "Find References 2.0" })
-
+        local layout = require("telescope.actions.layout")
         local shared_keymaps = {
             ["<C-h>"] = actions.results_scrolling_left,
             ["<C-j>"] = actions.move_selection_next,
@@ -75,19 +85,22 @@ return {
             ["<A-j>"] = actions.preview_scrolling_down,
             ["<A-k>"] = actions.preview_scrolling_up,
             ["<A-l>"] = actions.preview_scrolling_right,
+            ["<A-t>"] = layout.toggle_preview,
+            -- ["<C-t>"] = function()
+            --     return toggleIgnoredFilePatterns()
+            -- end,
         }
         telescope.setup({
             defaults = {
                 -- vimgrep_arguments = {
-                --   "rg",
-                --   "--hidden",
-                --   "--ignored",
-                --   "--with-filename",
-                --   "--pretty",
+                --     "rg",
+                --     "--hidden",
+                --     "--ignored",
+                --     "--with-filename",
+                --     "--pretty",
                 -- },
                 file_ignore_patterns = {
                     "%.spec.ts",
-                    -- ".git/",
                 },
                 layout_strategy = "flex",
                 layout_config = {
