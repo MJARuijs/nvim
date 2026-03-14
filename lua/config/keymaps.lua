@@ -10,6 +10,10 @@
 -- vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
 -- vim.api.nvim_set_keymap("n", "<A-q>", "<cmd><leader>bd<CR>", { noremap = true, silent = true })
 -- vim.keymap.del("n", "<leader>ft")
+--
+
+local util = require("util")
+
 vim.keymap.set("n", "<leader>gG", function()
     Snacks.lazygit({ cwd = LazyVim.root.git() })
 end, { desc = "Lazygit (root)" })
@@ -60,6 +64,7 @@ vim.api.nvim_set_keymap("n", "<C-o>", "i<CR><ESC>O", {})
 -- vim.api.nvim_set_keymap("n", "<C-h>", "<cmd>lua Snacks.dashboard()<CR>", { desc = "Dashboard" })
 -- vim.api.nvim_set_keymap("n", "<leader>e", "<C-w>v<C-w>H<cmd>Oil<CR>", {})
 vim.keymap.set("n", "d", '"_d', { desc = "Delete to Void" })
+vim.keymap.set("v", "p", '"_dP', { desc = "Delete to Void" })
 vim.keymap.set("n", "x", '"_x', { desc = "Delete to Void" })
 vim.keymap.set("n", "c", "d", { desc = "Cut" })
 vim.keymap.set("n", "cc", "dd", { desc = "Cut" })
@@ -76,12 +81,7 @@ vim.api.nvim_create_autocmd("User", {
     end,
 })
 
-local opts = { noremap = true, silent = true }
 local ng = require("ng")
-local buffer_cursor_history = require("buffer-cursor-memory")
--- vim.keymap.set("n", "<leader>at", ng.goto_template_for_component, opts)
--- vim.keymap.set("n", "<leader>ac", ng.goto_component_with_template_file, opts)
--- vim.keymap.set("n", "<leader>aT", ng.get_template_tcb, opts)
 vim.keymap.set("n", "<leader>ct", function()
     local buffer_name = vim.api.nvim_buf_get_name(0)
     if string.match(buffer_name, ".html$") then
@@ -89,11 +89,6 @@ vim.keymap.set("n", "<leader>ct", function()
     else
         ng.goto_template_for_component({})
     end
-    -- vim.schedule(function()
-    --     vim.schedule(function()
-    --         buffer_cursor_history.restore_position()
-    --     end)
-    -- end)
 end, { desc = "Toggle Component/Template" })
 
 local width = 0
@@ -124,6 +119,28 @@ vim.keymap.set("n", "<leader>zp", function()
     end
     print(result)
     print(width)
+end)
+
+vim.keymap.set("n", "<leader>zl", function()
+    local clients = vim.lsp.get_clients()
+    local message = table_to_string(clients)
+    -- for k, v in pairs(clients) do
+    --     message = message .. k .. ": [\n"
+    --     -- if type(v) == "string" then
+    --     --     message = message .. v
+    --     -- end
+    --     for k2, v2 in pairs(v) do
+    --         -- message = message .. type(v2) .. "\n"
+    --         if type(v2) == "string" then
+    --             message = message .. "\t{" .. k2 .. " : String(" .. v2 .. "}\n"
+    --         else
+    --             message = message .. "\t{" .. k2 .. " : " .. type(v2) .. "}\n"
+    --         end
+    --     end
+    --
+    --     message = message .. "\n]\n"
+    -- end
+    vim.notify(message)
 end)
 
 -----------------------------------------------------------------------------------------------------
