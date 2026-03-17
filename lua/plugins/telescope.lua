@@ -11,31 +11,6 @@ local mergeTables = function(t1, t2)
     return result
 end
 
-local function filterDuplicates(array)
-    print("DOEI")
-    local uniqueArray = {}
-    for _, tableA in ipairs(array) do
-        local isDuplicate = false
-        for _, tableB in ipairs(uniqueArray) do
-            if vim.deep_equal(tableA, tableB) then
-                isDuplicate = true
-                break
-            end
-        end
-        if not isDuplicate then
-            table.insert(uniqueArray, tableA)
-        end
-    end
-    return uniqueArray
-end
-
-local function on_list(options)
-    options.items = filterDuplicates(options.items)
-    print("HOI")
-    vim.fn.setqflist({}, " ", options)
-    vim.cmd("botright copen")
-end
-
 local base_ignore_patterns = {
     "%.spec.ts",
 }
@@ -86,9 +61,6 @@ return {
             ["<A-k>"] = actions.preview_scrolling_up,
             ["<A-l>"] = actions.preview_scrolling_right,
             ["<A-t>"] = layout.toggle_preview,
-            -- ["<C-t>"] = function()
-            --     return toggleIgnoredFilePatterns()
-            -- end,
         }
         telescope.setup({
             defaults = {
@@ -121,9 +93,6 @@ return {
             },
             pickers = {
                 lsp_references = {
-                    opts = {
-                        on_list = on_list,
-                    },
                     show_line = true,
                     reuse_win = true,
                 },
