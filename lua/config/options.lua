@@ -15,6 +15,7 @@ opt.smartcase = true -- if you include mixed case in your search, assumes you wa
 
 opt.clipboard:append("unnamedplus") -- use system clipboard as default register
 opt.foldmethod = "indent"
+opt.foldopen = ""
 -- split windows
 opt.splitright = true -- split vertical window to the right
 opt.splitbelow = true -- split horizontal window to the bottom
@@ -27,12 +28,12 @@ opt.relativenumber = true
 opt.cursorline = true
 
 opt.fillchars = {
-  foldopen = "",
-  foldclose = "",
-  fold = " ",
-  foldsep = " ",
-  diff = "╱",
-  eob = " ",
+    foldopen = "",
+    foldclose = "",
+    fold = " ",
+    foldsep = " ",
+    diff = "╱",
+    eob = " ",
 }
 opt.foldlevel = 99
 opt.foldmethod = "indent"
@@ -48,10 +49,10 @@ opt.termguicolors = true
 opt.wildmode = "longest:full,full"
 
 if vim.g.neovide then
-  vim.g.neovide_scale_factor = 0.80
-  vim.g.neovide_scroll_animation_length = 0.0
-  vim.g.neovide_padding_top = 5
-  vim.g.neovide_padding_bottom = 0
-  vim.g.neovide_padding_left = 5
-  vim.g.neovide_padding_right = 5
+    vim.g.neovide_scale_factor = 0.80
+    vim.g.neovide_scroll_animation_length = 0.0
+    vim.g.neovide_padding_top = 5
+    vim.g.neovide_padding_bottom = 0
+    vim.g.neovide_padding_left = 5
+    vim.g.neovide_padding_right = 5
 end
