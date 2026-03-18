@@ -4,7 +4,7 @@
 local opt = vim.opt
 
 opt.expandtab = true -- Use spaces instead of tabs
-opt.shiftwidth = 4
+opt.shiftwidth = 1
 opt.tabstop = 2
 opt.wrap = false
 opt.smartindent = true
@@ -49,6 +49,8 @@ opt.termguicolors = true
 opt.wildmode = "longest:full,full"
 
 if vim.g.neovide then
+    vim.g.neovide_cursor_animation_length = 0.0
+    vim.g.neovide_cursor_short_animation_length = 0.0
     vim.g.neovide_scale_factor = 0.80
     vim.g.neovide_scroll_animation_length = 0.0
     vim.g.neovide_padding_top = 5
