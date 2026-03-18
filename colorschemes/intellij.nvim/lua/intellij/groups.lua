@@ -323,6 +323,8 @@ local function reloadTheme()
         TodoSignTEST = { bg = matugen_colors.mSurface },
         TodoSignHACK = { bg = matugen_colors.mSurface },
         TodoSignTODO = { bg = matugen_colors.mSurface },
+        TodoFgTODO = { fg = matugen_colors.mPrimary },
+        TodoBgTODO = { fg = matugen_colors.mSurface, bg = matugen_colors.mPrimary },
         MiniIconsRed = { fg = matugen_colors.red },
         MiniIconsGreen = { fg = matugen_colors.green },
         MiniIconsYellow = { fg = matugen_colors.yellow },
