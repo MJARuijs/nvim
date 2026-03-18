@@ -110,6 +110,7 @@ local function reloadTheme()
         ["@operator.typescript"] = { fg = colors.text },
         -- ["@punctuation.bracket.typescript"] = { fg = colors.text },
         ["@punctuation.delimiter.typescript"] = { fg = colors.text },
+        ["@punctuation.special.typescript"] = { fg = colors.text },
         ["@type.typescript"] = { fg = colors.text },
         ["@type.builtin.typescript"] = { fg = colors.keyword },
         ["@variable.builtin.typescript"] = { fg = colors.keyword },
