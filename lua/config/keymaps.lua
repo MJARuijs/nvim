@@ -44,14 +44,20 @@ end, { desc = "Terminal (cwd)" })
 --     Snacks.explorer(nil, { cwd = LazyVim.root() })
 -- end, { desc = "Explorer (Root Dir)" })
 
--- Go to end of line, find next method, find the opening bracket for the parameters ('F('), use b to jump back a word (to the name of the function), and finally center the line (zz)
 vim.api.nvim_set_keymap("n", "<c-d>", "<c-d>zz", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<c-u>", "<c-u>zz", { noremap = true, silent = true })
 
-vim.api.nvim_set_keymap("n", "]m", "$]mF(zz", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "}M", "$]MF(zz", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "[m", "$[mF(zz", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "{M", "$[MF(zz", { noremap = true, silent = true })
+vim.keymap.set("n", "dM", "j[mV$]Mjd", { desc = "Delete method under cursor" })
+
+vim.keymap.set("v", "]m", "$]m^zz", { desc = "Jump to next method" })
+vim.keymap.set("v", "}M", "$]M^jzz", { desc = "Jump to end of method" })
+vim.keymap.set("v", "[m", "^[m^zz", { desc = "Jump to previous method" })
+vim.keymap.set("v", "{M", "^[M^zz", { desc = "Jump to end of previous method" })
+vim.keymap.set("n", "]m", "$]m^zz", { desc = "Jump to next method" })
+vim.keymap.set("n", "}M", "$]M^zz", { desc = "Jump to end of method" })
+vim.keymap.set("n", "[m", "^[m^zz", { desc = "Jump to previous method" })
+vim.keymap.set("n", "{M", "^[M^zz", { desc = "Jump to end of previous method" })
+
 vim.api.nvim_set_keymap("n", "<A-h>", "<cmd>vertical resize -1<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<A-j>", "<cmd>horizontal resize -1<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<A-k>", "<cmd>horizontal resize +1<CR>", { noremap = true, silent = true })
@@ -69,8 +75,7 @@ vim.api.nvim_set_keymap("i", "<C-l>", "<Right>", { noremap = true, silent = true
 vim.api.nvim_set_keymap("i", "<C-p>", "<ESC>pa", {})
 vim.api.nvim_set_keymap("n", "<C-o>", "i<CR><ESC>O", {})
 vim.api.nvim_set_keymap("n", "<C-o>", "i<CR><ESC>O", {})
--- vim.api.nvim_set_keymap("n", "<C-h>", "<cmd>lua Snacks.dashboard()<CR>", { desc = "Dashboard" })
--- vim.api.nvim_set_keymap("n", "<leader>e", "<C-w>v<C-w>H<cmd>Oil<CR>", {})
+
 vim.keymap.set("n", "d", '"_d', { desc = "Delete to Void" })
 vim.keymap.set("v", "p", '"_dP', { desc = "Delete to Void" })
 vim.keymap.set("n", "x", '"_x', { desc = "Delete to Void" })
@@ -125,13 +130,14 @@ vim.keymap.set("n", "<leader>zp", function()
             result = result .. "|" .. key .. "=" .. tostring(window_options[key] or "<not set>") .. "\n"
         end
     end
+    print(util.table_to_string(all_options))
     print(result)
     print(width)
 end)
 
 vim.keymap.set("n", "<leader>zl", function()
     local clients = vim.lsp.get_clients()
-    local message = table_to_string(clients)
+    local message = util.table_to_string(clients)
     -- for k, v in pairs(clients) do
     --     message = message .. k .. ": [\n"
     --     -- if type(v) == "string" then
