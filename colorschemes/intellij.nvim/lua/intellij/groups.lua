@@ -179,6 +179,8 @@ local function reloadTheme()
         cConditional = { fg = colors.keyword },
         cParen = { fg = matugen_colors.mPrimary },
         cBlock = { fg = matugen_colors.mPrimary },
+        cRepeat = { fg = colors.keyword },
+        cStatement = { fg = colors.keyword },
 
         -- General LSP
         Comment = { fg = "#7A7E85", italic = true },

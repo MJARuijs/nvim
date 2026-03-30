@@ -1,3 +1,3 @@
 return {
-  dir = "~/nvim-plugins/window-layout-manager.nvim",
+    dir = "/home/marc/nvim-plugins/window-layout-manager.nvim",
 }

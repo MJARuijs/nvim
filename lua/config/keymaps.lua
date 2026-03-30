@@ -34,20 +34,14 @@ vim.keymap.set({ "n", "t" }, "<c-/>", function()
     Snacks.terminal()
 end, { desc = "Terminal (cwd)" })
 
--- vim.keymap.set("n", "<leader>e", function()
---     Snacks.explorer({
---         tree = true,
---     })
--- end, { desc = "Explorer (cwd)" })
-
--- vim.keymap.set("n", "<leader>E", function()
---     Snacks.explorer(nil, { cwd = LazyVim.root() })
--- end, { desc = "Explorer (Root Dir)" })
+vim.keymap.set("n", "<leader>e", function()
+    Snacks.explorer(nil, { cwd = LazyVim.root() })
+end, { desc = "Explorer (Root Dir)" })
 
 vim.api.nvim_set_keymap("n", "<c-d>", "<c-d>zz", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<c-u>", "<c-u>zz", { noremap = true, silent = true })
 
-vim.keymap.set("n", "dM", "j[mV$]Mjd", { desc = "Delete method under cursor" })
+vim.keymap.set("n", "dm", "j[mV$]Mjd", { desc = "Delete method under cursor" })
 
 vim.keymap.set("v", "]m", "$]m^zz", { desc = "Jump to next method" })
 vim.keymap.set("v", "}M", "$]M^jzz", { desc = "Jump to end of method" })
@@ -68,23 +62,18 @@ vim.api.nvim_set_keymap("n", "<A-C-j>", "<cmd>horizontal resize -3<CR>", { norem
 vim.api.nvim_set_keymap("n", "<A-C-k>", "<cmd>horizontal resize +3<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<A-C-l>", "<cmd>vertical resize +3<CR>", { noremap = true, silent = true })
 
-vim.api.nvim_set_keymap("i", "<C-h>", "<Left>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("i", "<C-j>", "<Down>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("i", "<C-k>", "<Up>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("i", "<C-l>", "<Right>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("i", "<C-p>", "<ESC>pa", {})
 vim.api.nvim_set_keymap("n", "<C-o>", "i<CR><ESC>O", {})
 vim.api.nvim_set_keymap("n", "<C-o>", "i<CR><ESC>O", {})
 
+vim.api.nvim_set_keymap("n", "dz", '"_d^a<BS><right><esc>', { noremap = true, silent = true })
+vim.keymap.set("n", "d^", '"_d^', { desc = "Delete to Void" })
+vim.keymap.set("n", "d", '"_d', { desc = "Delete to Void" })
 vim.keymap.set("n", "d", '"_d', { desc = "Delete to Void" })
 vim.keymap.set("v", "p", '"_dP', { desc = "Delete to Void" })
 vim.keymap.set("n", "x", '"_x', { desc = "Delete to Void" })
 vim.keymap.set("n", "c", "d", { desc = "Cut" })
 vim.keymap.set("n", "cc", "dd", { desc = "Cut" })
-
-vim.keymap.set("n", "<A-e>", function()
-    Snacks.explorer.open()
-end, { desc = "Open Explorer" })
 
 vim.api.nvim_create_autocmd("User", {
     pattern = "VeryLazy",
@@ -100,7 +89,8 @@ vim.keymap.set("n", "<leader>ct", function()
     if string.match(buffer_name, ".html$") then
         ng.goto_component_with_template_file({})
     else
-        ng.goto_template_for_component({})
+        vim.cmd.call("nvim_input(']c')")
+        vim.cmd.call("nvim_input(':lua require(\"ng\").goto_template_for_component({})<CR>')")
     end
 end, { desc = "Toggle Component/Template" })
 
@@ -156,6 +146,22 @@ vim.keymap.set("n", "<leader>zl", function()
     -- end
     vim.notify(message)
 end)
+
+vim.api.nvim_create_autocmd("BufEnter", {
+    callback = function()
+        vim.keymap.set({ "i" }, "<A-h>", "<Left>", { desc = "Cursor Left" })
+        vim.keymap.set({ "i" }, "<A-j>", "<Down>", { desc = "Cursor Down" })
+        vim.keymap.set({ "i" }, "<A-k>", "<Up>", { desc = "Cursor Up" })
+        vim.keymap.set({ "i" }, "<A-l>", "<Right>", { desc = "Cursor Right" })
+
+        vim.keymap.set({ "i", "v" }, "<C-h>", "<esc><C-w>h", { desc = "Go to the left window" })
+        vim.keymap.set({ "i", "v" }, "<C-j>", "<esc><C-w>j", { desc = "Go to the down window" })
+        vim.keymap.set({ "i", "v" }, "<C-k>", "<esc><C-w>k", { desc = "Go to the up window" })
+        vim.keymap.set({ "i", "v" }, "<C-l>", "<esc><C-w>l", { desc = "Go to the right window" })
+
+        -- vim.keymap.set("n", "<leader>bb", "<leader>bbzz", { desc = "Swap buffer and center line" })
+    end,
+})
 
 -----------------------------------------------------------------------------------------------------
 -----------------------------------------------NEOVIDE-----------------------------------------------

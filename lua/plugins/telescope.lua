@@ -28,6 +28,13 @@ local function toggleIgnoredFilePatterns()
     end
 end
 
+local pickers = require("telescope.pickers")._Picker
+local telescope = require("telescope")
+local test = function()
+    -- pickers:add_selection(1)
+    -- pickers:find()
+end
+
 return {
     "MJARuijs/telescope.nvim",
     tag = "*",
@@ -60,7 +67,7 @@ return {
             ["<A-j>"] = actions.preview_scrolling_down,
             ["<A-k>"] = actions.preview_scrolling_up,
             ["<A-l>"] = actions.preview_scrolling_right,
-            ["<A-t>"] = layout.toggle_preview,
+            ["<A-t>"] = test,
         }
         telescope.setup({
             defaults = {

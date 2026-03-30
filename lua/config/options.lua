@@ -4,7 +4,7 @@
 local opt = vim.opt
 
 opt.expandtab = true -- Use spaces instead of tabs
-opt.shiftwidth = 1
+opt.shiftwidth = 2
 opt.tabstop = 2
 opt.wrap = false
 opt.smartindent = true
