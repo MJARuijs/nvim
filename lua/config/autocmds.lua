@@ -32,3 +32,9 @@ autocmd("Signal", {
     end,
     nested = true, -- allow this autocmd to trigger `OptionSet background` event
 })
+
+-- autocmd("VimEnter", {
+--     callback = function()
+--         vim.cmd.call("nvim_input(':lua vim.g.neovide_scale_factor=0.8<CR>')")
+--     end,
+-- })

@@ -77,10 +77,7 @@ vim.keymap.set("n", "cc", "dd", { desc = "Cut" })
 
 vim.api.nvim_create_autocmd("User", {
     pattern = "VeryLazy",
-    callback = function()
-        vim.keymap.del("n", "L")
-        vim.keymap.del("n", "H")
-    end,
+    callback = function() end,
 })
 
 local ng = require("ng")

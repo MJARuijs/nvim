@@ -95,6 +95,7 @@ local function reloadTheme()
         ["@keyword.modifier.typescript"] = { fg = colors.keyword },
         ["@keyword.return.typescript"] = { fg = colors.keyword },
         ["@keyword.operator.typescript"] = { fg = colors.keyword },
+        ["@keyword.repeat.typescript"] = { fg = colors.keyword },
         ["@keyword.typescript"] = { fg = colors.keyword },
         ["@keyword.type.typescript"] = { fg = colors.keyword },
         ["@lsp.type.parameter.typescript"] = { fg = colors.text },
