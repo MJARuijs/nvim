@@ -38,3 +38,50 @@ autocmd("VimEnter", {
         vim.cmd.call("nvim_input(':lua vim.g.neovide_scale_factor=0.8<CR>')")
     end,
 })
+
+local util = require("util")
+
+-- autocmd({ "BufReadPre" }, {
+--     callback = function(args)
+--         if args ~= nil then
+--             vim.notify("BufReadPre: " .. util.table_to_string(args))
+--         else
+--             vim.notify("FT but args is nil..")
+--         end
+--     end,
+-- })
+-- autocmd({ "BufNewFile" }, {
+--     callback = function(args)
+--         if args ~= nil then
+--             vim.notify("BufNewFile: " .. util.table_to_string(args))
+--         else
+--             vim.notify("FT but args is nil..")
+--         end
+--     end,
+-- })
+-- autocmd({ "FileReadPre" }, {
+--     callback = function(args)
+--         if args ~= nil then
+--             vim.notify("FileReadPre: " .. util.table_to_string(args))
+--         else
+--             vim.notify("FT but args is nil..")
+--         end
+--     end,
+-- })
+-- autocmd({ "FileType" }, {
+--     callback = function(args)
+--         if args ~= nil then
+--             if
+--                 args["match"] ~= nil
+--                 and args["match"] ~= "noice"
+--                 and args["match"] ~= "snacks_notif"
+--                 and args["match"] ~= "TelescopePrompt"
+--                 and args["match"] ~= "TelescopeResults"
+--             then
+--                 vim.notify("FILETYPE: " .. util.table_to_string(args))
+--             end
+--         else
+--             vim.notify("FT but args is nil..")
+--         end
+--     end,
+-- })

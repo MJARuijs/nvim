@@ -4,11 +4,10 @@
 local opt = vim.opt
 
 opt.expandtab = true -- Use spaces instead of tabs
-opt.shiftwidth = 2
-opt.tabstop = 2
+opt.shiftwidth = 4
+opt.tabstop = 4
 opt.wrap = false
 opt.smartindent = true
-
 -- search settings
 opt.ignorecase = true -- ignore case when searching
 opt.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive

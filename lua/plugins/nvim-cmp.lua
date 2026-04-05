@@ -1,7 +1,7 @@
 return {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
-    enabled = true,
+    enabled = false,
     dependencies = {
         "hrsh7th/cmp-buffer", -- source for text in buffer
         "hrsh7th/cmp-path", -- source for file system paths
@@ -36,7 +36,7 @@ return {
                 ["<C-e>"] = cmp.mapping.scroll_docs(4),
                 ["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
                 -- ["<CR>"] = cmp.mapping.confirm({ select = true }),
-                ["<CR>"] = cmp.mapping(function(fallback)
+                ["<Tab>"] = cmp.mapping(function(fallback)
                     -- This little snippet will confirm with Enter, and if no entry is selected, will confirm the first item
                     if cmp.visible() then
                         local entry = cmp.get_selected_entry()
