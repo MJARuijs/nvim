@@ -75,6 +75,9 @@ vim.keymap.set("n", "x", '"_x', { desc = "Delete to Void" })
 vim.keymap.set("n", "c", "d", { desc = "Cut" })
 vim.keymap.set("n", "cc", "dd", { desc = "Cut" })
 
+vim.keymap.set("n", "<leader>ar", ":!ags quit & ags run &<CR>")
+vim.keymap.set("n", "<leader>aq", ":!ags quit<CR>")
+
 vim.api.nvim_create_autocmd("User", {
     pattern = "VeryLazy",
     callback = function() end,
