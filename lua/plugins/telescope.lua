@@ -13,6 +13,7 @@ end
 
 local base_ignore_patterns = {
     "%.spec.ts",
+    "src/test/.*java$",
 }
 
 local function toggleIgnoredFilePatterns()
@@ -78,9 +79,7 @@ return {
                 --     "--with-filename",
                 --     "--pretty",
                 -- },
-                file_ignore_patterns = {
-                    "%.spec.ts",
-                },
+                file_ignore_patterns = base_ignore_patterns,
                 layout_strategy = "flex",
                 layout_config = {
                     horizontal = {

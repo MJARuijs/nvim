@@ -6,6 +6,7 @@ return {
         { "mason-org/mason-lspconfig.nvim", config = function() end },
     },
     opts_extend = { "servers.*.keys" },
+    enabled = true,
     opts = function()
         ---@class PluginLspOpts
         local ret = {

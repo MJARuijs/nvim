@@ -41,7 +41,7 @@ end, { desc = "Explorer (Root Dir)" })
 vim.api.nvim_set_keymap("n", "<c-d>", "<c-d>zz", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<c-u>", "<c-u>zz", { noremap = true, silent = true })
 
-vim.keymap.set("n", "dm", "j[mV$]Mjd", { desc = "Delete method under cursor" })
+vim.keymap.set("n", "<leader>dm", "j[mV$]Mjd", { desc = "Delete method under cursor" })
 
 vim.keymap.set("v", "]m", "$]m^zz", { desc = "Jump to next method" })
 vim.keymap.set("v", "}M", "$]M^jzz", { desc = "Jump to end of method" })
