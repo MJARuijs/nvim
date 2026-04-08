@@ -51,6 +51,7 @@ vim.keymap.set("n", "]m", "$]m^zz", { desc = "Jump to next method" })
 vim.keymap.set("n", "}M", "$]M^zz", { desc = "Jump to end of method" })
 vim.keymap.set("n", "[m", "^[m^zz", { desc = "Jump to previous method" })
 vim.keymap.set("n", "{M", "^[M^zz", { desc = "Jump to end of previous method" })
+vim.api.nvim_set_keymap("n", "}C", "]C", { desc = "Jump to end of class" })
 
 vim.api.nvim_set_keymap("n", "<A-h>", "<cmd>vertical resize -1<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<A-j>", "<cmd>horizontal resize -1<CR>", { noremap = true, silent = true })
