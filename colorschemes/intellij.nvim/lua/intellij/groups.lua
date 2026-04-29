@@ -60,6 +60,10 @@ local function reloadTheme()
         ["@punctuation.bracket"] = { fg = matugen_colors.mPrimary },
         ["@operator"] = { fg = colors.text },
 
+        -- XML
+        ["@tag.xml"] = { fg = colors.tag },
+        ["@tag.delimiter.xml"] = { fg = colors.tag },
+
         -- Angular
         ["@tag.angular"] = { fg = colors.tag },
         ["@tag.attribute.angular"] = { fg = colors.text },
