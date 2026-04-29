@@ -63,6 +63,10 @@ local function reloadTheme()
         ["@operator"] = { fg = colors.text },
         ["@variable.builtin"] = { fg = colors.keyword },
 
+        -- XML
+        ["@tag.xml"] = { fg = colors.tag },
+        ["@tag.delimiter.xml"] = { fg = colors.tag },
+
         -- Angular
         ["@tag.angular"] = { fg = colors.tag },
         ["@tag.attribute.angular"] = { fg = colors.text },
