@@ -58,7 +58,10 @@ local function reloadTheme()
         DiagnosticUnnecessary = { fg = colors.unused_code },
 
         ["@punctuation.bracket"] = { fg = matugen_colors.mPrimary },
+        ["@punctuation.delimiter"] = { fg = matugen_colors.mPrimary },
+        ["@punctuation.special"] = { fg = matugen_colors.mPrimary },
         ["@operator"] = { fg = colors.text },
+        ["@variable.builtin"] = { fg = colors.keyword },
 
         -- Angular
         ["@tag.angular"] = { fg = colors.tag },
@@ -81,6 +84,14 @@ local function reloadTheme()
         ["@tag.attribute.html"] = { fg = colors.variable },
         ["@tag.delimiter.html"] = { fg = colors.tag },
         ["@comment.html"] = { link = "Comment" },
+
+        -- JavaScript
+        ["@keyword.repeat.javascript"] = { fg = colors.keyword },
+        ["@keyword.conditional.javascript"] = { fg = colors.keyword },
+        ["@keyword.function.javascript"] = { link = "Function" },
+        ["@variable.member.javascript"] = { fg = colors.variable },
+        ["@variable.javascript"] = { fg = colors.variable },
+        ["@variable.parameter.javascript"] = { fg = colors.text },
 
         -- Typescript
         ["@lsp.type.class.typescript"] = { link = 0 },
