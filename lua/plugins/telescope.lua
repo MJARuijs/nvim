@@ -13,6 +13,7 @@ end
 
 local base_ignore_patterns = {
     "%.spec.ts",
+    -- "src/app/.*((?!routing)).module.ts",
     "src/test/.*java$",
 }
 

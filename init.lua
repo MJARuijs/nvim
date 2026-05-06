@@ -89,3 +89,5 @@ require("flutter-tools").setup({
     },
     -- flutter_lookup_cmd = "/home/marc/dev/flutter/bin",
 }) -- use defaults
+
+require("dapui").setup()

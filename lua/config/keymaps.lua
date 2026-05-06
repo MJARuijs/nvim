@@ -164,6 +164,40 @@ vim.api.nvim_create_autocmd("BufEnter", {
     end,
 })
 
+vim.keymap.set("n", "<leader>dt", function()
+    require("dapui").toggle()
+end, {})
+
+vim.keymap.set("n", "<leader>kr", function()
+    local dap = require("dap")
+    local dapui = require("dapui")
+    -- dapui.setup()
+    -- dapui.open()
+    dap.continue()
+end, {})
+
+local isConsoleOpen = false
+
+vim.keymap.set("n", "<leader>kt", function()
+    -- local dap = require("dap")
+    -- local dapui = require("dapui")
+    vim.cmd([[DapToggleRepl]])
+
+    if isConsoleOpen then
+        isConsoleOpen = false
+    else
+        isConsoleOpen = true
+    end
+
+    -- vim.notify(vim.cmd([[vim.api.nvim_list_wins()]]))
+    -- if isConsoleOpen then
+    vim.cmd.call("nvim_input(<c-w>j)")
+    -- end
+    -- isConsoleOpen = ~isConsoleOpen
+    -- dapui.setup()
+    -- dapui.open()
+    -- dap.toggle()
+end, {})
 -----------------------------------------------------------------------------------------------------
 -----------------------------------------------NEOVIDE-----------------------------------------------
 -----------------------------------------------------------------------------------------------------
