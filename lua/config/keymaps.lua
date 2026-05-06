@@ -139,7 +139,7 @@ vim.keymap.set("n", "<leader>zl", function()
     --         if type(v2) == "string" then
     --             message = message .. "\t{" .. k2 .. " : String(" .. v2 .. "}\n"
     --         else
-    --             message = message .. "\t{" .. k2 .. " : " .. type(v2) .. "}\n"
+    --             message = message .. "\t{" .. k2 .. """ : " .. type(v2) .. "}\n"
     --         end
     --     end
     --
@@ -170,34 +170,36 @@ end, {})
 
 vim.keymap.set("n", "<leader>kr", function()
     local dap = require("dap")
-    local dapui = require("dapui")
-    -- dapui.setup()
-    -- dapui.open()
     dap.continue()
-end, {})
+end, { desc = "Run Kotlin project" })
 
 local isConsoleOpen = false
 
 vim.keymap.set("n", "<leader>kt", function()
-    -- local dap = require("dap")
-    -- local dapui = require("dapui")
+    local windows_before_toggle = vim.api.nvim_list_wins()
+
     vim.cmd([[DapToggleRepl]])
 
     if isConsoleOpen then
         isConsoleOpen = false
     else
         isConsoleOpen = true
-    end
 
-    -- vim.notify(vim.cmd([[vim.api.nvim_list_wins()]]))
-    -- if isConsoleOpen then
-    vim.cmd.call("nvim_input(<c-w>j)")
-    -- end
-    -- isConsoleOpen = ~isConsoleOpen
-    -- dapui.setup()
-    -- dapui.open()
-    -- dap.toggle()
-end, {})
+        local windows_after_toggle = vim.api.nvim_list_wins()
+        for _, v in ipairs(windows_after_toggle) do
+            local foundWindow = false
+            for _, v2 in ipairs(windows_before_toggle) do
+                if v == v2 then
+                    foundWindow = true
+                end
+            end
+            if foundWindow == false then
+                vim.api.nvim_win_set_height(v, 25)
+            end
+        end
+    end
+end, { desc = "Toggle Kotlin console" })
+
 -----------------------------------------------------------------------------------------------------
 -----------------------------------------------NEOVIDE-----------------------------------------------
 -----------------------------------------------------------------------------------------------------
