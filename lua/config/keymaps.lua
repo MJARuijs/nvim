@@ -167,7 +167,8 @@ vim.api.nvim_create_autocmd("BufEnter", {
 vim.keymap.set("n", "<leader>kt", function()
     -- require("dapui").toggle()
     local snacks = require("snacks")
-    snacks.terminal.open()
+    snacks.terminal.toggle()
+    vim.cmd.call("nvim_input('<ESC><ESC>')")
 end, {})
 
 vim.keymap.set("n", "<leader>kc", function()
@@ -176,17 +177,20 @@ vim.keymap.set("n", "<leader>kc", function()
     -- snacks.terminal:hide()
 end, {})
 
+vim.keymap.set("n", "<a-r>", function()
+    os.execute(
+        "/home/marc/.jdks/openjdk-25.0.1/bin/java --enable-native-access=ALL-UNNAMED -javaagent:/home/marc/Software/IntelliJ/lib/idea_rt.jar=46095 -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -classpath /home/marc/Documents/Programming/SpoderEngine/target/classes:/home/marc/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/2.1.21/kotlin-stdlib-2.1.21.jar:/home/marc/.m2/repository/org/jetbrains/annotations/13.0/annotations-13.0.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl/3.4.1/lwjgl-3.4.1.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl-assimp/3.4.1/lwjgl-assimp-3.4.1.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl-glfw/3.4.1/lwjgl-glfw-3.4.1.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl-openal/3.4.1/lwjgl-openal-3.4.1.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl-opengl/3.4.1/lwjgl-opengl-3.4.1.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl-stb/3.4.1/lwjgl-stb-3.4.1.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl/3.4.1/lwjgl-3.4.1-natives-linux.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl-assimp/3.4.1/lwjgl-assimp-3.4.1-natives-linux.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl-glfw/3.4.1/lwjgl-glfw-3.4.1-natives-linux.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl-openal/3.4.1/lwjgl-openal-3.4.1-natives-linux.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl-opengl/3.4.1/lwjgl-opengl-3.4.1-natives-linux.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl-stb/3.4.1/lwjgl-stb-3.4.1-natives-linux.jar MainKt"
+    )
+end, {})
+
 vim.keymap.set("n", "<leader>kr", function()
-    -- os.execute(
-    --     "/home/marc/.jdks/openjdk-25.0.1/bin/java --enable-native-access=ALL-UNNAMED -javaagent:/home/marc/Software/IntelliJ/lib/idea_rt.jar=46095 -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -classpath /home/marc/Documents/Programming/SpoderEngine/target/classes:/home/marc/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/2.1.21/kotlin-stdlib-2.1.21.jar:/home/marc/.m2/repository/org/jetbrains/annotations/13.0/annotations-13.0.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl/3.4.1/lwjgl-3.4.1.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl-assimp/3.4.1/lwjgl-assimp-3.4.1.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl-glfw/3.4.1/lwjgl-glfw-3.4.1.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl-openal/3.4.1/lwjgl-openal-3.4.1.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl-opengl/3.4.1/lwjgl-opengl-3.4.1.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl-stb/3.4.1/lwjgl-stb-3.4.1.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl/3.4.1/lwjgl-3.4.1-natives-linux.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl-assimp/3.4.1/lwjgl-assimp-3.4.1-natives-linux.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl-glfw/3.4.1/lwjgl-glfw-3.4.1-natives-linux.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl-openal/3.4.1/lwjgl-openal-3.4.1-natives-linux.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl-opengl/3.4.1/lwjgl-opengl-3.4.1-natives-linux.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl-stb/3.4.1/lwjgl-stb-3.4.1-natives-linux.jar MainKt"
-    -- )
     os.execute("mvn clean compile package")
     local snacks = require("snacks")
     if snacks.terminal ~= nil and snacks.terminal.close ~= nil then
         snacks.terminal:close()
     end
     local windows_before_toggle = vim.api.nvim_list_wins()
-    snacks.terminal.open()
+    snacks.terminal.toggle()
 
     local windows_after_toggle = vim.api.nvim_list_wins()
     for _, v in ipairs(windows_after_toggle) do
