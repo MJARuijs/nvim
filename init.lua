@@ -3,6 +3,7 @@ require("config.autocmds")
 require("config.keymaps")
 require("config.options")
 
+-- require("window-layout-manager").setup()
 -- vim.lsp.config("vtsls", {
 --     cmd = { "vtsls", "--stdio" },
 --     filetypes = {

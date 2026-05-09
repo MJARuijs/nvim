@@ -164,41 +164,78 @@ vim.api.nvim_create_autocmd("BufEnter", {
     end,
 })
 
-vim.keymap.set("n", "<leader>dt", function()
-    require("dapui").toggle()
+vim.keymap.set("n", "<leader>kt", function()
+    -- require("dapui").toggle()
+    local snacks = require("snacks")
+    snacks.terminal.open()
+end, {})
+
+vim.keymap.set("n", "<leader>kc", function()
+    local snacks = require("snacks")
+    snacks.terminal.toggle()
+    -- snacks.terminal:hide()
 end, {})
 
 vim.keymap.set("n", "<leader>kr", function()
-    local dap = require("dap")
-    dap.continue()
+    -- os.execute(
+    --     "/home/marc/.jdks/openjdk-25.0.1/bin/java --enable-native-access=ALL-UNNAMED -javaagent:/home/marc/Software/IntelliJ/lib/idea_rt.jar=46095 -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -classpath /home/marc/Documents/Programming/SpoderEngine/target/classes:/home/marc/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/2.1.21/kotlin-stdlib-2.1.21.jar:/home/marc/.m2/repository/org/jetbrains/annotations/13.0/annotations-13.0.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl/3.4.1/lwjgl-3.4.1.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl-assimp/3.4.1/lwjgl-assimp-3.4.1.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl-glfw/3.4.1/lwjgl-glfw-3.4.1.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl-openal/3.4.1/lwjgl-openal-3.4.1.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl-opengl/3.4.1/lwjgl-opengl-3.4.1.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl-stb/3.4.1/lwjgl-stb-3.4.1.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl/3.4.1/lwjgl-3.4.1-natives-linux.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl-assimp/3.4.1/lwjgl-assimp-3.4.1-natives-linux.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl-glfw/3.4.1/lwjgl-glfw-3.4.1-natives-linux.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl-openal/3.4.1/lwjgl-openal-3.4.1-natives-linux.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl-opengl/3.4.1/lwjgl-opengl-3.4.1-natives-linux.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl-stb/3.4.1/lwjgl-stb-3.4.1-natives-linux.jar MainKt"
+    -- )
+    os.execute("mvn clean compile package")
+    local snacks = require("snacks")
+    if snacks.terminal ~= nil and snacks.terminal.close ~= nil then
+        snacks.terminal:close()
+    end
+    local windows_before_toggle = vim.api.nvim_list_wins()
+    snacks.terminal.open()
+
+    local windows_after_toggle = vim.api.nvim_list_wins()
+    for _, v in ipairs(windows_after_toggle) do
+        local foundWindow = false
+        for _, v2 in ipairs(windows_before_toggle) do
+            if v == v2 then
+                foundWindow = true
+            end
+        end
+        if foundWindow == false then
+            vim.api.nvim_win_set_height(v, 25)
+        end
+    end
+
+    vim.cmd.call("nvim_input('java -jar target/SpoderEngine-1.0-jar-with-dependencies.jar<CR>')")
+    -- local dap = require("dap")
+    -- dap.continue()
 end, { desc = "Run Kotlin project" })
 
 local isConsoleOpen = false
 
-vim.keymap.set("n", "<leader>kt", function()
-    local windows_before_toggle = vim.api.nvim_list_wins()
+-- vim.keymap.set("n", "<leader>kt", function()
+--     local windows_before_toggle = vim.api.nvim_list_wins()
+--
+--     vim.cmd([[DapToggleRepl]])
+--
+--     if isConsoleOpen then
+--         isConsoleOpen = false
+--     else
+--         isConsoleOpen = true
+--
+--         local windows_after_toggle = vim.api.nvim_list_wins()
+--         for _, v in ipairs(windows_after_toggle) do
+--             local foundWindow = false
+--             for _, v2 in ipairs(windows_before_toggle) do
+--                 if v == v2 then
+--                     foundWindow = true
+--                 end
+--             end
+--             if foundWindow == false then
+--                 vim.api.nvim_win_set_height(v, 25)
+--             end
+--         end
+--     end
+-- end, { desc = "Toggle Kotlin console" })
 
-    vim.cmd([[DapToggleRepl]])
-
-    if isConsoleOpen then
-        isConsoleOpen = false
-    else
-        isConsoleOpen = true
-
-        local windows_after_toggle = vim.api.nvim_list_wins()
-        for _, v in ipairs(windows_after_toggle) do
-            local foundWindow = false
-            for _, v2 in ipairs(windows_before_toggle) do
-                if v == v2 then
-                    foundWindow = true
-                end
-            end
-            if foundWindow == false then
-                vim.api.nvim_win_set_height(v, 25)
-            end
-        end
-    end
-end, { desc = "Toggle Kotlin console" })
+vim.keymap.set("n", "<leader>zz", function()
+    require("window-layout-manager").printState()
+end, { desc = "Print window layout states" })
 
 -----------------------------------------------------------------------------------------------------
 -----------------------------------------------NEOVIDE-----------------------------------------------

@@ -171,6 +171,19 @@ local function reloadTheme()
         ["@punctuation.delimiter.java"] = { fg = colors.text },
         ["@function.builtin.java"] = { fg = colors.keyword },
 
+        -- Kotlin
+        ["@constructor.kotlin"] = { fg = colors.keyword },
+        ["@function.builtin.kotlin"] = { fg = colors.keyword },
+        ["@keyword.conditional.kotlin"] = { fg = colors.keyword },
+        ["@keyword.repeat.kotlin"] = { fg = colors.keyword },
+        ["@keyword.exception.kotlin"] = { fg = colors.keyword },
+        ["@keyword.function.kotlin"] = { fg = colors.keyword },
+        ["@keyword.import.kotlin"] = { fg = colors.keyword },
+        ["@lsp.type.namespace.kotlin"] = { fg = colors.text },
+        ["@lsp.type.class.kotlin"] = { fg = colors.text },
+        ["@lsp.type.property.kotlin"] = { fg = colors.variable },
+        ["@lsp.typemod.class.defaultLibrary.kotlin"] = { fg = colors.text },
+
         -- ["@lsp.typemod.parameter.declat"] = { fg = colors.class_name },
 
         JavaBlockOther = { fg = colors.test },
