@@ -141,11 +141,50 @@ return {
                         },
                     },
                 },
+                tailwindcss = {
+                    filetypes_include = { "angular", "html" },
+                    filetypes_exclude = {},
+                },
             },
             -- you can do any additional lsp server setup here
             -- return true if you don't want this server to be setup with lspconfig
             ---@type table<string, fun(server:string, opts: vim.lsp.Config):boolean?>
             setup = {
+                -- tailwindcss = function(_, opts)
+                --     local tw = LazyVim.lsp.get_raw_config("tailwindcss")
+                --     opts.filetypes = opts.filetypes or {}
+                --
+                --     -- Add default filetypes
+                --     vim.list_extend(opts.filetypes, tw.default_config.filetypes)
+                --
+                --     -- Remove excluded filetypes
+                --     opts.filetypes = vim.tbl_filter(function(ft)
+                --         return not vim.tbl_contains(opts.filetypes_exclude or {}, ft)
+                --     end, opts.filetypes)
+                --
+                --     opts.settings = {
+                --         tailwindCSS = {
+                --             includeLanguages = {
+                --                 elm = "html",
+                --             },
+                --             experimental = {
+                --                 classRegex = {
+                --                     { [[\bclass[\s(<|]+"([^"]*)"]] },
+                --                     { [[\bclass[\s(]+"[^"]*"\s+"([^"]*)"]] },
+                --                     { [[\bclass[\s<|]+"[^"]*"\s*\+{2}\s*" ([^"]*)"]] },
+                --                     { [[\bclass[\s<|]+"[^"]*"\s*\+{2}\s*" [^"]*"\s*\+{2}\s*" ([^"]*)"]] },
+                --                     { [[\bclass[\s<|]+"[^"]*"\s*\+{2}\s*" [^"]*"\s*\+{2}\s*" [^"]*"\s*\+{2}\s*" ([^"]*)"]] },
+                --                     { [[\bclassList[\s\[\(]+"([^"]*)"]] },
+                --                     { [[\bclassList[\s\[\(]+"[^"]*",\s[^\)]+\)[\s\[\(,]+"([^"]*)"]] },
+                --                     { [[\bclassList[\s\[\(]+"[^"]*",\s[^\)]+\)[\s\[\(,]+"[^"]*",\s[^\)]+\)[\s\[\(,]+"([^"]*)"]] },
+                --                 },
+                --             },
+                --         },
+                --     }
+                --
+                --     -- Add additional filetypes
+                --     vim.list_extend(opts.filetypes, opts.filetypes_include or {})
+                -- end,
                 -- example to setup with typescript.nvim
                 -- tsserver = function(_, opts)
                 --   require("typescript").setup({ server = opts })
