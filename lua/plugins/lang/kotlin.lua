@@ -58,7 +58,7 @@ return {
             -- Optional: Configure inlay hints (requires kotlin-lsp v261+)
             -- All settings default to true, set to false to disable specific hints
             inlay_hints = {
-                enabled = true, -- Enable inlay hints (auto-enable on LSP attach)
+                enabled = false, -- Enable inlay hints (auto-enable on LSP attach)
                 parameters = true, -- Show parameter names
                 parameters_compiled = true, -- Show compiled parameter names
                 parameters_excluded = false, -- Show excluded parameter names
