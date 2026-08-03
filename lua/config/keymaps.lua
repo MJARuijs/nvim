@@ -53,10 +53,11 @@ vim.keymap.set("n", "[m", "^[m^zz", { desc = "Jump to previous method" })
 vim.keymap.set("n", "{M", "^[M^zz", { desc = "Jump to end of previous method" })
 vim.api.nvim_set_keymap("n", "}C", "]C", { desc = "Jump to end of class" })
 
-vim.api.nvim_set_keymap("n", "<A-h>", "<cmd>vertical resize -1<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<A-j>", "<cmd>horizontal resize -1<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<A-k>", "<cmd>horizontal resize +1<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<A-l>", "<cmd>vertical resize +1<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<A-h>", "<cmd>tabprevious<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<A-l>", "<cmd>tabnext<CR>", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "<A-j>", "<cmd>horizontal resize -1<CR>", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "<A-k>", "<cmd>horizontal resize +1<CR>", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "<A-l>", "<cmd>vertical resize +1<CR>", { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap("n", "<A-C-h>", "<cmd>vertical resize -3<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<A-C-j>", "<cmd>horizontal resize -3<CR>", { noremap = true, silent = true })
@@ -90,10 +91,34 @@ vim.keymap.set("n", "<leader>ct", function()
     if string.match(buffer_name, ".html$") then
         ng.goto_component_with_template_file({})
     else
-        vim.cmd.call("nvim_input(']c')")
+        vim.cmd.call("nvim_input('gg2]c')")
         vim.cmd.call("nvim_input(':lua require(\"ng\").goto_template_for_component({})<CR>')")
     end
 end, { desc = "Toggle Component/Template" })
+
+vim.keymap.set("n", "gC", function()
+    ng.goto_template_for_component({})
+    vim.cmd.call("nvim_input(':lua require(\"telescope.builtin\").lsp_definitions({ reuse_win = true })<CR>')")
+    vim.defer_fn(function()
+        local bufferId = vim.api.nvim_get_current_buf()
+        ng.goto_template_for_component({})
+        vim.notify("" .. bufferId)
+        vim.api.nvim_buf_delete(bufferId, {})
+    end, 200)
+    -- 'nvim_input(\':lua require("telescope.builtin").lsp_definitions({ reuse_win = true })<CR>:lua require("ng").goto_template_for_component({})<CR>\')'
+    -- ng.goto_component_with_template_file({})
+    -- ng.goto_template_for_component({})
+    -- vim.cmd.call("nvim_input('')")
+    -- vim.cmd.call("nvim_input('gg')")
+    -- vim.cmd.call("nvim_input(':lua require(\"ng\").goto_template_for_component({})<CR>')")
+    -- local buffer_name = vim.api.nvim_buf_get_name(0)
+    -- if string.match(buffer_name, ".html$") then
+    --     ng.goto_component_with_template_file({})
+    -- else
+    --     vim.cmd.call("nvim_input('gg2]c')")
+    --     vim.cmd.call("nvim_input(':lua require(\"ng\").goto_template_for_component({})<CR>')")
+    -- end
+end, { desc = "Go to component template" })
 
 local width = 0
 vim.keymap.set("n", "<leader>zt", function()
