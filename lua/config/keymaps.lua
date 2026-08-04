@@ -79,6 +79,8 @@ vim.keymap.set("n", "cc", "dd", { desc = "Cut" })
 vim.keymap.set("n", "<leader>ar", ":!ags quit & ags run &<CR>")
 vim.keymap.set("n", "<leader>aq", ":!ags quit<CR>")
 
+vim.keymap.set("n", "<A-BS>", "^hv0xi<BS><ESC>j", {})
+
 vim.api.nvim_create_autocmd("User", {
     pattern = "VeryLazy",
     callback = function() end,
@@ -90,7 +92,7 @@ vim.keymap.set("n", "<leader>ct", function()
     if string.match(buffer_name, ".html$") then
         ng.goto_component_with_template_file({})
     else
-        vim.cmd.call("nvim_input(']c')")
+        vim.cmd.call("nvim_input('gg2]c')")
         vim.cmd.call("nvim_input(':lua require(\"ng\").goto_template_for_component({})<CR>')")
     end
 end, { desc = "Toggle Component/Template" })
@@ -165,7 +167,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
 })
 
 local kotlinCmd =
-    "/home/marc/.jdks/openjdk-25.0.1/bin/java --enable-native-access=ALL-UNNAMED -javaagent:/home/marc/Software/IntelliJ/lib/idea_rt.jar=46095 -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -classpath /home/marc/Documents/Programming/SpoderEngine/target/classes:/home/marc/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/2.1.21/kotlin-stdlib-2.1.21.jar:/home/marc/.m2/repository/org/jetbrains/annotations/13.0/annotations-13.0.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl/3.4.1/lwjgl-3.4.1.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl-assimp/3.4.1/lwjgl-assimp-3.4.1.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl-glfw/3.4.1/lwjgl-glfw-3.4.1.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl-openal/3.4.1/lwjgl-openal-3.4.1.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl-opengl/3.4.1/lwjgl-opengl-3.4.1.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl-stb/3.4.1/lwjgl-stb-3.4.1.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl/3.4.1/lwjgl-3.4.1-natives-linux.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl-assimp/3.4.1/lwjgl-assimp-3.4.1-natives-linux.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl-glfw/3.4.1/lwjgl-glfw-3.4.1-natives-linux.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl-openal/3.4.1/lwjgl-openal-3.4.1-natives-linux.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl-opengl/3.4.1/lwjgl-opengl-3.4.1-natives-linux.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl-stb/3.4.1/lwjgl-stb-3.4.1-natives-linux.jar MainKt"
+    "/home/marc/.jdks/openjdk-26.0.1/bin/java --enable-native-access=ALL-UNNAMED -javaagent:/home/marc/Software/IntelliJ/lib/idea_rt.jar=46095 -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -classpath /home/marc/Documents/Programming/SpoderEngine/target/classes:/home/marc/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/2.1.21/kotlin-stdlib-2.1.21.jar:/home/marc/.m2/repository/org/jetbrains/annotations/13.0/annotations-13.0.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl/3.4.1/lwjgl-3.4.1.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl-assimp/3.4.1/lwjgl-assimp-3.4.1.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl-glfw/3.4.1/lwjgl-glfw-3.4.1.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl-openal/3.4.1/lwjgl-openal-3.4.1.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl-opengl/3.4.1/lwjgl-opengl-3.4.1.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl-stb/3.4.1/lwjgl-stb-3.4.1.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl/3.4.1/lwjgl-3.4.1-natives-linux.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl-assimp/3.4.1/lwjgl-assimp-3.4.1-natives-linux.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl-glfw/3.4.1/lwjgl-glfw-3.4.1-natives-linux.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl-openal/3.4.1/lwjgl-openal-3.4.1-natives-linux.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl-opengl/3.4.1/lwjgl-opengl-3.4.1-natives-linux.jar:/home/marc/.m2/repository/org/lwjgl/lwjgl-stb/3.4.1/lwjgl-stb-3.4.1-natives-linux.jar MainKt"
 
 vim.keymap.set("n", "<leader>kt", function()
     require("toggleterm").toggle()
