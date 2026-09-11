@@ -14,8 +14,7 @@ return {
                 --     expandtab = true,
                 -- },
                 {
-                    filetypes = { "javascript", "typescript", "typescriptreact", "json", "jsx", "css", "scss", "xml", "yml", "yaml" },
-                    filetypes = { "javascript", "html", "htmlangular", "typescript", "typescriptreact", "jsx", "css", "scss", "xml", "yml" },
+                    filetypes = { "javascript", "html", "htmlangular", "typescript", "typescriptreact", "json", "jsx", "css", "scss", "xml", "yml", "yaml" },
                     config = {
                         tabwidth = 2,
                         shiftwidth = 2,
