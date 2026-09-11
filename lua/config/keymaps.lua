@@ -187,6 +187,8 @@ vim.api.nvim_create_autocmd("BufEnter", {
         vim.keymap.set({ "i", "v" }, "<C-k>", "<esc><C-w>k", { desc = "Go to the up window" })
         vim.keymap.set({ "i", "v" }, "<C-l>", "<esc><C-w>l", { desc = "Go to the right window" })
 
+        -- vim.keymap.set({ "c", "v" }, "<A-j>", "select_next", { desc = "Go to the down window" })
+        -- vim.keymap.set({ "c", "v" }, "<C-k>", "<Up>", { desc = "Go to the up window" })
         -- vim.keymap.set("n", "<leader>bb", "<leader>bbzz", { desc = "Swap buffer and center line" })
     end,
 })

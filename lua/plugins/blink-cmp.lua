@@ -29,11 +29,19 @@ return {
         keymap = {
             preset = "enter",
 
-            ["<C-j>"] = { "select_next", "fallback" },
-            ["<C-k>"] = { "select_prev", "fallback" },
+            ["<Down>"] = { "select_next", "fallback" },
+            ["<C-j>"] = { "select_next" },
+            ["<C-k>"] = { "select_prev" },
             ["<Tab>"] = { "select_and_accept", "fallback" },
+            ["<S-Tab>"] = { "select_next", "fallback" },
 
             ["<C-s>"] = { "show_signature", "hide_signature", "fallback" },
+        },
+
+        cmdline = {
+            keymap = {
+                preset = "inherit",
+            },
         },
 
         appearance = {
