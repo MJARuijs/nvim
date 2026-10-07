@@ -13,6 +13,7 @@
 --
 
 local util = require("util")
+-- local explorer = require("lua.plugins.snacks-explorer")
 
 vim.keymap.set("n", "<leader>gG", function()
     Snacks.lazygit({ cwd = LazyVim.root.git() })
@@ -34,8 +35,12 @@ vim.keymap.set({ "n", "t" }, "<c-/>", function()
     Snacks.terminal()
 end, { desc = "Terminal (cwd)" })
 
+vim.keymap.set("n", "<leader>E", function()
+    Snacks.explorer({ cwd = LazyVim.root(), hidden = true, ignored = true })
+end, { desc = "Explorer (Root Dir)" })
+
 vim.keymap.set("n", "<leader>e", function()
-    Snacks.explorer(nil, { cwd = LazyVim.root() })
+    Snacks.explorer({ hidden = true, ignored = true })
 end, { desc = "Explorer (Root Dir)" })
 
 vim.api.nvim_set_keymap("n", "<c-d>", "<c-d>zz", { noremap = true, silent = true })
