@@ -113,9 +113,9 @@ return {
                             },
                         },
                     },
-                    scroll = { enabled = false },
                 },
             },
+            scroll = { enabled = false },
         },
     },
 }
