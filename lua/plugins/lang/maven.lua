@@ -1,3 +1,4 @@
+-- local snacks = require("snacks")
 return {
     "oclay1st/maven.nvim",
     cmd = { "Maven", "MavenInit", "MavenExec", "MavenFavorites" },
@@ -10,7 +11,8 @@ return {
         { "<leader>m", desc = "+Maven", mode = { "n", "v" } },
         { "<leader>mm", "<cmd>Maven<cr>", desc = "Maven Projects" },
         { "<leader>mf", "<cmd>MavenFavorites<cr>", desc = "Maven Favorite Commands" },
-        { "<leader>mc", ":!mvn clean compile<cr>", desc = "Maven clean compile" },
-        { "<leader>mp", ":!mvn clean package<cr>", desc = "Maven clean package" },
+        -- { "<leader>mc", ":!mvn clean compile<cr>", desc = "Maven clean compile" },
+        -- { "<leader>mc", snacks.terminal("mvn clean compile"), desc = "Maven clean compile" },
+        -- { "<leader>mp", ":!mvn clean package<cr>", desc = "Maven clean package" },
     },
 }

@@ -27,6 +27,14 @@ vim.keymap.set("n", "<leader>ft", function()
     Snacks.terminal()
 end, { desc = "Terminal (cwd)" })
 
+vim.keymap.set("n", "<leader>mc", function()
+    Snacks.terminal("mvn clean compile")
+end, { desc = "mvn clean compile" })
+
+vim.keymap.set("n", "<leader>mp", function()
+    Snacks.terminal("mvn clean package")
+end, { desc = "mvn clean package" })
+
 vim.keymap.set("n", "<leader>fT", function()
     Snacks.terminal(nil, { cwd = LazyVim.root() })
 end, { desc = "Terminal (Root Dir)" })
