@@ -56,18 +56,3 @@ vim.api.nvim_create_autocmd("LspAttach", {
         keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
     end,
 })
-
--- vim.lsp.inlay_hint.enable(true)
-
-local severity = vim.diagnostic.severity
-
-vim.diagnostic.config({
-    signs = {
-        text = {
-            [severity.ERROR] = " ",
-            [severity.WARN] = " ",
-            [severity.HINT] = "󰠠 ",
-            [severity.INFO] = " ",
-        },
-    },
-})
